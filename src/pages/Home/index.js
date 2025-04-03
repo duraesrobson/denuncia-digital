@@ -4,7 +4,8 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function Home() {
   return (
     <View style={styles.container}>
-      <Text>Página Home</Text>
+      <Text style={styles.titulo}>Página Home</Text>
+      <Text style={styles.descricao}>Bem vindo a página inicial</Text>
     </View>
   );
 }
@@ -16,8 +17,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  text:{
+  titulo:{
     fontSize: 25,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginBottom: 10
+  },
+  descricao:{
+    fontSize: 20,
+    fontWeight: 'regular',
+    marginBottom: 10
   }
 }); 

@@ -4,8 +4,9 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function Dashboard() {
   return (
     <View style={styles.container}>
-      <Text>Dashboard</Text>
-    </View>
+      <Text style={styles.titulo}>Dashboard</Text>
+      <Text style={styles.descricao}>Veja os gráficos</Text>
+      </View>
   );
 }
 
@@ -15,9 +16,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    color: 'red',
   },
-  text:{
+  titulo:{
     fontSize: 25,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginBottom: 10
+  },
+  descricao:{
+    fontSize: 20,
+    fontWeight: 'regular',
+    marginBottom: 10
   }
 }); 
