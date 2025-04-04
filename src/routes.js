@@ -1,6 +1,7 @@
 import React from 'react';
 import { Feather } from '@expo/vector-icons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Image } from 'react-native';
 
 import Home from './pages/Home';
 import Denuncia from './pages/Denuncia';
@@ -15,11 +16,33 @@ import Dashboard from './pages/Dashboard';
 
 const Tab = createBottomTabNavigator();
 
+function LogoTitle() {
+    return (
+        <Image
+            style={{
+                width: 150,
+                marginBottom: 25,
+                resizeMode: 'contain'
+            }}
+            source={require('../assets/logo-192.png')}
+        />
+    );
+}
+
 export default function Routes(){
     return(
         <Tab.Navigator 
             screenOptions={{
-                
+                headerTitle: (props) => <LogoTitle {...props} />,
+                headerStyle: {
+                    backgroundColor: '#041615',
+                    height: 80,
+                },
+                headerTitleAlign: 'center',
+                headerTitleContainerStyle: {
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                },
                 tabBarStyle: {
                     height: 80,
                     paddingTop: 8,
