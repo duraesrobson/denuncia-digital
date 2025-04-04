@@ -1,18 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
 export default function Home() {
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>Teste</Text>
-      <Text style={styles.descricao}>Bem vindo a página inicial</Text>
+      <ScrollView>
+        <Text style={styles.titulo}>Início</Text>
+        <Text style={styles.descricao}>Bem vindo a página inicial</Text>
+      </ScrollView>
     </View>
-  );
+    );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'row',
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
@@ -20,11 +23,13 @@ const styles = StyleSheet.create({
   titulo:{
     fontSize: 25,
     fontWeight: 'bold',
-    marginBottom: 10
+    marginBottom: 10,
+    textAlign: 'center'
   },
   descricao:{
     fontSize: 20,
     fontWeight: 'regular',
-    marginBottom: 10
+    marginBottom: 10,
+    textAlign: 'center'
   }
 }); 
