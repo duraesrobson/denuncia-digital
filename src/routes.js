@@ -1,7 +1,7 @@
 import React from 'react';
 import { Feather } from '@expo/vector-icons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Image } from 'react-native';
+import { Image, SafeAreaView } from 'react-native';
 
 import Home from './pages/Home';
 import Denuncia from './pages/Denuncia';
@@ -18,14 +18,19 @@ const Tab = createBottomTabNavigator();
 
 function LogoTitle() {
     return (
-        <Image
-            style={{
-                width: 150,
-                marginBottom: 25,
-                resizeMode: 'contain'
-            }}
-            source={require('../assets/logo-192.png')}
-        />
+        <SafeAreaView style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+        }}>
+            <Image
+                style={{
+                    width: 145,
+                    resizeMode: 'contain',
+                }}
+                source={require('../assets/logo-192.png')}
+            />
+        </SafeAreaView>
     );
 }
 
@@ -35,8 +40,8 @@ export default function Routes(){
             screenOptions={{
                 headerTitle: (props) => <LogoTitle {...props} />,
                 headerStyle: {
-                    backgroundColor: '#041615',
-                    height: 80,
+                    backgroundColor: 'black',
+                    height: 100
                 },
                 headerTitleAlign: 'center',
                 headerTitleContainerStyle: {
@@ -48,20 +53,21 @@ export default function Routes(){
                     paddingTop: 8,
                     justifyContent: 'center',
                     alignItems: 'center',
-                    backgroundColor: '#041615',
+                    backgroundColor: 'black',
                 },
                 tabBarActiveTintColor: '#ff3f01',
                 tabBarInactiveTintColor: '#01fafa',
                 tabBarIconStyle: {
-                    flex:1,
-                    height: 35,
-                    width: 35,
+                    
+                    height: 30,
+                    width: 30,
                     justifyContent: 'center',
                     alignItems: 'center'
                 },
                 tabBarLabelStyle: {
                     flex:1,
-                    fontSize: 15,
+                    fontSize: 13,
+                    marginTop: 3,
                     fontWeight: 'regular',
                 }
             }}>
@@ -69,7 +75,7 @@ export default function Routes(){
                 name="Início" 
                 component={Home}
                 options={{
-                    tabBarIcon: ({size, color}) => <Feather name='home' color={color} size={35}/>
+                    tabBarIcon: ({size, color}) => <Feather name='home' color={color} size={31}/>
                 }}
             />
 
@@ -77,7 +83,7 @@ export default function Routes(){
                 name="Denúncia" 
                 component={Denuncia}
                 options={{
-                    tabBarIcon: ({size, color}) => <Feather name='file-plus' color={color} size={35}/>
+                    tabBarIcon: ({size, color}) => <Feather name='file-plus' color={color} size={31}/>
                 }}
             />
 
@@ -85,7 +91,7 @@ export default function Routes(){
                 name="Dashboard" 
                 component={Dashboard}
                 options={{
-                    tabBarIcon: ({size, color}) => <Feather name='bar-chart-2' color={color} size={35}/>
+                    tabBarIcon: ({size, color}) => <Feather name='bar-chart-2' color={color} size={31}/>
                 }}
             />
         </Tab.Navigator>
