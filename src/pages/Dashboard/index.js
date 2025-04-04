@@ -13,7 +13,7 @@ export default function Dashboard() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#c5f8f3',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
     color: 'red',
