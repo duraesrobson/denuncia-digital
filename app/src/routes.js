@@ -3,17 +3,12 @@ import { Feather } from '@expo/vector-icons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image, SafeAreaView } from 'react-native';
 import { StatusBar } from 'react-native';
+import { COLORS, FONTS, SIZES } from '@styles/global';
 
 import Home from '@pages/Home';
 import Denuncia from '@pages/Denuncia';
 import Dashboard from '@pages/Dashboard';
 
-// COLORS
-//   darkRed: '#ff0400',
-//   lightRed: '#ff3f01',
-//   darkBlue: '#01deea',
-//   lightBlue: '#01fafa',
-//   dark: '#041615',
 
 const Tab = createBottomTabNavigator();
 
@@ -26,8 +21,9 @@ function LogoTitle() {
         }}>
             <Image
                 style={{
-                    width: 145,
+                    width: 170,
                     resizeMode: 'contain',
+                    
                 }}
                 source={require('@assets/logo-192.png')}
             />
@@ -40,15 +36,15 @@ export default function Routes(){
         <>
             <StatusBar
                 barStyle="light-content"
-                backgroundColor="black"
+                backgroundColor={COLORS.black}
                 translucent={true}
             />
             <Tab.Navigator 
                 screenOptions={{
                     headerTitle: (props) => <LogoTitle {...props} />,
                     headerStyle: {
-                        backgroundColor: 'black',
-                        height: 100
+                        backgroundColor: COLORS.darkPurple,
+                        height: 120
                     },
                     headerTitleAlign: 'center',
                     headerTitleContainerStyle: {
@@ -60,12 +56,11 @@ export default function Routes(){
                         paddingTop: 8,
                         justifyContent: 'center',
                         alignItems: 'center',
-                        backgroundColor: 'black',
+                        backgroundColor: COLORS.darkPurple,
                     },
-                    tabBarActiveTintColor: '#ff3f01',
-                    tabBarInactiveTintColor: '#01fafa',
+                    tabBarActiveTintColor: COLORS.orange,
+                    tabBarInactiveTintColor: COLORS.blue,
                     tabBarIconStyle: {
-                        
                         height: 30,
                         width: 30,
                         justifyContent: 'center',
