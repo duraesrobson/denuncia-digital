@@ -10,7 +10,7 @@ export default function Home() {
         <Text style={styles.descricao}>Bem vindo a página inicial</Text>
       </ScrollView>
     </SafeAreaView>
-    );
+  );
 }
 
 const styles = StyleSheet.create({
