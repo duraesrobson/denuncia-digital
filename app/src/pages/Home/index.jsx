@@ -1,14 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Home() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <ScrollView>
         <Text style={styles.titulo}>Início</Text>
         <Text style={styles.descricao}>Bem vindo a página inicial</Text>
       </ScrollView>
-    </View>
+    </SafeAreaView>
     );
 }
 

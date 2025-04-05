@@ -1,14 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Denuncia() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <ScrollView>
         <Text style={styles.titulo}>Página de denúncia</Text>
         <Text style={styles.descricao}>Faça uma denúncia anônima</Text>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 

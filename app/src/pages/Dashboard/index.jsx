@@ -1,14 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Dashboard() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <ScrollView>
         <Text style={styles.titulo}>Dashboard</Text>
         <Text style={styles.descricao}>Veja os gráficos</Text>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 
