@@ -3,9 +3,9 @@ import { Feather } from '@expo/vector-icons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image, SafeAreaView } from 'react-native';
 
-import Home from './pages/Home';
-import Denuncia from './pages/Denuncia';
-import Dashboard from './pages/Dashboard';
+import Home from '@pages/Home';
+import Denuncia from '@pages/Denuncia';
+import Dashboard from '@pages/Dashboard';
 
 // COLORS
 //   darkRed: '#ff0400',
@@ -28,7 +28,7 @@ function LogoTitle() {
                     width: 145,
                     resizeMode: 'contain',
                 }}
-                source={require('../assets/logo-192.png')}
+                source={require('@assets/icon-192.png')}
             />
         </SafeAreaView>
     );
