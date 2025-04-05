@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { COLORS } from '@/styles/global';
+
 export default function Home() {
   return (
     <SafeAreaView style={styles.container}>
@@ -17,18 +19,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.light,
     alignItems: 'center',
     justifyContent: 'center',
   },
   titulo:{
     fontSize: 25,
+    color: COLORS.darkPurple,
     fontWeight: 'bold',
     marginBottom: 10,
     textAlign: 'center'
   },
   descricao:{
     fontSize: 20,
+    color: COLORS.orange,
     fontWeight: 'regular',
     marginBottom: 10,
     textAlign: 'center'
