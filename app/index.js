@@ -10,14 +10,18 @@ export default function Index() {
     <SafeAreaView style={styles.container}>
       <StatusBar
         barStyle="light-content"
-        backgroundColor={COLORS.darkPurple}
+        backgroundColor={COLORS.orange}
         translucent={false}
         animated={true}
       />
       <View style={styles.content}>
         <Image
           style={styles.imagem}
-          source={require('@assets/images/icon-192.png')}
+          source={require('@assets/images/logo-192.png')}
+        />
+        <Image
+          style={styles.imagem2}
+          source={require('@assets/images/using-phone.png')}
         />
         <Text style={styles.titulo}>
           Internet consciente com <Text style={styles.span}>Denúncia Digital</Text> 
@@ -37,9 +41,21 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     alignItems: 'center',
-    gap: 25,
     justifyContent: 'center',
     padding: 20,
+  },
+  imagem: {
+    resizeMode: 'contain',
+    width:160,
+    height: 160,
+    margin: 40,
+    marginTop: -70
+  },
+  imagem2: {
+    resizeMode: 'contain',
+    width:350,
+    height: 350,
+    marginTop: -40
   },
   titulo:{
     fontSize: 30,
