@@ -4,25 +4,31 @@
     "slug": "DenunciaDigital",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/splash-icon.png",
+    "icon": "./assets/images/splash-icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/images/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#171324"
     },
+    "scheme": "denunciadigital",
     "ios": {
       "supportsTablet": true
+      
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/splash-icon.png",
+        "foregroundImage": "./assets/images/splash-icon.png",
         "backgroundColor": "#171324"
       }
+      
     },
     "web": {
-      "favicon": "./assets/icon-92.png"
-    }
+      "favicon": "./assets/images/icon-92.png"
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }

@@ -2,13 +2,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./app/src/*"],
-      "@components/*": ["./app/src/components/*"],
-      "@screens/*": ["./app/src/screens/*"],
+      "@/*": ["./src/*"],
+      "@components/*": ["./app/components/*"],
+      "@screens/*": ["./app/screens/*"],
       "@assets/*": ["./assets/*"],
-      "@routes/*": ["./app/src/routes/*"],
-      "@pages/*": ["./app/src/pages/*"],
-      "@styles/*": ["./app/src/styles/*"]
+      "@images/*": ["./assets/images/*"],
+      "@fonts/*": ["./assets/fonts/*"],
+      "@tabs/*": ["./app/tabs/*"],
+      "@styles/*": ["./app/styles/*"]
     }
   }
 } 
