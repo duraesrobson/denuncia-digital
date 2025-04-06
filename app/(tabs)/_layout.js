@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
-import { Feather } from '@expo/vector-icons';
 import { COLORS } from 'app/styles/global';
+import TabBarIcon from 'app/components/TabBarIcon';
 
 export default function TabsLayout() {
   return (
@@ -15,25 +15,26 @@ export default function TabsLayout() {
           backgroundColor: COLORS.darkPurple,
           height: 80,
           paddingTop: 8,
+          paddingBottom: 8,
         },
         tabBarActiveTintColor: COLORS.orange,
         tabBarInactiveTintColor: COLORS.blue,
-        tabBarIconStyle: {
-          height: 30,
-          width: 30,
-        },
         tabBarLabelStyle: {
           fontSize: 13,
-          marginTop: 3,
+          fontFamily: 'Rajdhani-SemiBold',
+          marginTop: 4,
+        },
+        tabBarItemStyle: {
+          paddingVertical: 4,
         },
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
           title: 'Início',
-          tabBarIcon: ({ color, size }) => (
-            <Feather name="home" size={size} color={color} />
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="home" color={color} />
           ),
         }}
       />
@@ -41,8 +42,8 @@ export default function TabsLayout() {
         name="denuncia"
         options={{
           title: 'Denúncia',
-          tabBarIcon: ({ color, size }) => (
-            <Feather name="file-plus" size={size} color={color} />
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="file-plus" color={color} />
           ),
         }}
       />
@@ -50,8 +51,8 @@ export default function TabsLayout() {
         name="dashboard"
         options={{
           title: 'Dashboard',
-          tabBarIcon: ({ color, size }) => (
-            <Feather name="bar-chart-2" size={size} color={color} />
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="bar-chart-2" color={color} />
           ),
         }}
       />
