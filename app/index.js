@@ -1,33 +1,43 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { COLORS } from 'app/styles/global';
+import { COLORS } from './styles/global';
 import { Link } from 'expo-router';
 import { StatusBar } from 'react-native';
+import OrangeButton from './components/OrangeButton'
 
 export default function Index() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
         barStyle="light-content"
-        backgroundColor={COLORS.orange}
+        backgroundColor={COLORS.darkPurple}
         translucent={false}
         animated={true}
       />
       <View style={styles.content}>
         <Image
-          style={styles.imagem}
+          style={styles.logo}
           source={require('@assets/images/logo-192.png')}
         />
         <Image
-          style={styles.imagem2}
+          style={styles.imagem}
           source={require('@assets/images/using-phone.png')}
         />
         <Text style={styles.titulo}>
-          Internet consciente com <Text style={styles.span}>Denúncia Digital</Text> 
+          Internet consciente com <Text style={styles.tituloSpan}>Denúncia <Text style={styles.digitalSpan}>Digital</Text></Text> 
         </Text>
         <Text style={styles.descricao}>Aqui, você pode entender seus direitos digitais, relatar violações de forma anônima e ajudar a construir um espaço virtual mais seguro e justo para todos.</Text>
-        <Link href="/(auth)/log-in" style={styles.link}>Ir para Login</Link>
+        
+        <Link href="./(auth)/log-in">
+      <TouchableOpacity>
+        <Text style={styles.buttonText}>
+          Continuar com e-mail
+        </Text>
+      </TouchableOpacity>
+    </Link>
+          
+        
       </View>
     </SafeAreaView>
   );
@@ -44,14 +54,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
   },
-  imagem: {
+  logo: {
     resizeMode: 'contain',
     width:160,
     height: 160,
-    margin: 40,
-    marginTop: -70
+    marginTop: -130
   },
-  imagem2: {
+  imagem: {
     resizeMode: 'contain',
     width:350,
     height: 350,
@@ -65,23 +74,30 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Rajdhani-Bold',
   },
-  span:{
+  tituloSpan:{
     color: COLORS.orange,
     fontSize: 40
   },
+  digitalSpan:{
+    color: COLORS.blue,
+    fontSize: 40
+  },
   descricao:{
-    fontSize: 20,
+    fontSize: 18,
     color: COLORS.light,
     marginBottom: 10,
     textAlign: 'center',
+    width: 300,
     fontFamily: 'Rajdhani-Regular',
   },
-  link: {
-    color: COLORS.orange,
-    fontSize: 16,
+  buttonText: {
+    color: COLORS.light,
+    fontSize: 20,
     textAlign: 'center',
     marginTop: 20,
-    textDecorationLine: 'underline',
-    fontFamily: 'Rajdhani-Medium',
+    backgroundColor: COLORS.orange,
+    padding: 10,
+    borderRadius: 15,
+    fontFamily: 'Rajdhani-Bold',
   }
 }); 
