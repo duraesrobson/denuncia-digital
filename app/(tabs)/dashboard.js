@@ -1,15 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { COLORS } from 'app/styles/global';
 
-import { COLORS } from '@/styles/global';
-
-export default function Home() {
+export default function Dashboard() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        <Text style={styles.titulo}>Início</Text>
-        <Text style={styles.descricao}>Bem vindo a página inicial</Text>
+        <Text style={styles.titulo}>Dashboard</Text>
+        <Text style={styles.descricao}>Visualize as estatísticas aqui</Text>
       </ScrollView>
     </SafeAreaView>
   );

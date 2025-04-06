@@ -1,14 +1,14 @@
-import { COLORS } from '@/styles/global';
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { COLORS } from 'app/styles/global';
 
-export default function Dashboard() {
+export default function Denuncia() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        <Text style={styles.titulo}>Dashboard</Text>
-        <Text style={styles.descricao}>Veja os gráficos</Text>
+        <Text style={styles.titulo}>Denúncia</Text>
+        <Text style={styles.descricao}>Faça sua denúncia aqui</Text>
       </ScrollView>
     </SafeAreaView>
   );
@@ -17,7 +17,7 @@ export default function Dashboard() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection:'row',
+    flexDirection: 'row',
     backgroundColor: COLORS.light,
     alignItems: 'center',
     justifyContent: 'center',
@@ -36,4 +36,4 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     textAlign: 'center'
   }
-});
+}); 
