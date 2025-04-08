@@ -1,16 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS } from 'app/styles/global';
 
 export default function Dashboard() {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaProvider style={styles.container}>
       <ScrollView>
         <Text style={styles.titulo}>Dashboard</Text>
         <Text style={styles.descricao}>Visualize as estatísticas aqui</Text>
       </ScrollView>
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
