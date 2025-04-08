@@ -22,6 +22,7 @@ const IndexLayout = () => {
     <SafeAreaProvider>
       <Stack
         screenOptions={{
+          headerShown: false,
           headerStyle: {
             backgroundColor: COLORS.darkPurple,
           },
@@ -39,20 +40,7 @@ const IndexLayout = () => {
           }}
         />
     
-        <Stack.Screen 
-          name="(auth)/log-in" 
-          options={{
-            title: 'Login',
-            headerShown: true
-          }}
-        />
-        <Stack.Screen 
-          name="(auth)/sign-up" 
-          options={{
-            title: 'Cadastro',
-            headerShown: true
-          }}
-        />
+        
       </Stack>
     </SafeAreaProvider>
   );
