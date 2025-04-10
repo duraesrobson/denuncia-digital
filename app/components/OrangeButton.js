@@ -5,30 +5,26 @@ import { COLORS } from '../styles/global';
 
 const OrangeButton = ({ title, handlePress, href, style, textStyle }) => {
   return (
-    
-      <TouchableOpacity
-      onPress={handlePress}
-      style={[styles.button]}>
-        <Text style={[styles.text]}>
-          {title}
-        </Text>
-      </TouchableOpacity>
-    
+    <TouchableOpacity onPress={handlePress} style={[styles.button, style]}>
+      <Text style={[styles.text, textStyle]}>
+        {title}
+      </Text>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   button: {
     backgroundColor: COLORS.orange,
-    padding: 10,
+    padding: 12,
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
-    width:200
+    width: 300
   },
   text: {
     color: COLORS.light,
-    fontSize: 25,
+    fontSize: 22,
     fontFamily: 'Rajdhani-SemiBold',
   },
 });

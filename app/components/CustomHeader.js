@@ -43,9 +43,9 @@ const styles = StyleSheet.create({
   },
   content: {
     flexDirection: 'row',
-    justifyContent: "space-between",
+    justifyContent: "space-evenly",
     alignItems: 'center',
-    gap: 170 
+    gap: 140
   },
   logo: {
     width: 140,

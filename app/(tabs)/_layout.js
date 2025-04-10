@@ -8,8 +8,8 @@ export default function TabsLayout() {
   return (
     <>
       <StatusBar 
-        barStyle='dark-content'
-        backgroundColor={COLORS.light}
+        style="light"
+        backgroundColor={COLORS.darkPurple}
       />
       <CustomHeader />
       
