@@ -4,7 +4,9 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS } from './styles/global';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import OrangeButton from './components/OrangeButton'
+import OrangeButton from './components/OrangeButton';
+// import { firebaseConfig } from '../firebaseConfig'; // Importa o firebaseConfig
+
 
 export default function Index() {
   return (

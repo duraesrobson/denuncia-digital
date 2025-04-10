@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "64333075400",
+    "project_id": "app-denuncia-digital",
+    "storage_bucket": "app-denuncia-digital.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:64333075400:android:0d12973228d034f80526fd",
+        "android_client_info": {
+          "package_name": "app.denunciadigital"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-foXQIirDG1rQIxGWNwTcEqo2kjAvRWA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
