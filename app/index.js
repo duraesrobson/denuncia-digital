@@ -107,8 +107,6 @@ const styles = StyleSheet.create({
     color: COLORS.orange,
     fontWeight: 'bold'
   },
-  button: {
-    margin: 10
-  }
+  
 
 });
