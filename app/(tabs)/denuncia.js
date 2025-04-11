@@ -1,21 +1,25 @@
 import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet, Alert, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, Text, StyleSheet, Alert, TextInput, FlatList } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { COLORS } from 'app/styles/global';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
 import DropDownPicker from 'react-native-dropdown-picker';
+import OrangeButton from '@components/OrangeButton';
 
 export default function DenunciaScreen() {
   const [faixaEtariaOpen, setFaixaEtariaOpen] = useState(false);
   const [periodoOpen, setPeriodoOpen] = useState(false);
   const [tipoOpen, setTipoOpen] = useState(false);
   const [plataformaOpen, setPlataformaOpen] = useState(false);
+  const [reportOpen, setReportOpen] = useState(false);
 
   const [faixaEtaria, setFaixaEtaria] = useState('');
   const [periodoDeUso, setPeriodoDeUso] = useState('');
   const [tipo, setTipo] = useState('');
   const [plataforma, setPlataforma] = useState('');
+  const [report, setReport] = useState('');
+  const [descricao, setDescricao] = useState('');
 
   const [faixaEtariaItems, setFaixaEtariaItems] = useState([
     { label: '18-25 anos', value: '18-25' },
@@ -52,11 +56,18 @@ export default function DenunciaScreen() {
     { label: 'X (Twitter)', value: 'twitter' },
     { label: 'TikTok', value: 'tiktok' },
     { label: 'YouTube', value: 'youtube' },
+    { label: 'Discord', value: 'discord' },
+    { label: 'Telegram', value: 'telegram' },
     { label: 'Outro', value: 'outraPlataforma' },
   ]);
 
+  const [reportItems, setReportItems] = useState([
+    { label: 'Sim', value: 'reportado' },
+    { label: 'Não', value: 'naoReportado' },
+  ]);
+
   const enviarDenuncia = async () => {
-    if (!faixaEtaria || !periodoDeUso || !tipo || !plataforma) {
+    if (!faixaEtaria || !periodoDeUso || !tipo || !plataforma || !report || !descricao) {
       Alert.alert('Erro', 'Preencha todos os campos');
       return;
     }
@@ -67,6 +78,8 @@ export default function DenunciaScreen() {
         periodoDeUso,
         tipo,
         plataforma,
+        report,
+        descricao,
         criadoEm: new Date(),
       });
 
@@ -75,20 +88,19 @@ export default function DenunciaScreen() {
       setPeriodoDeUso('');
       setTipo('');
       setPlataforma('');
+      setReport('');
+      setDescricao('');
     } catch (error) {
       console.error(error);
       Alert.alert('Erro', 'Não foi possível enviar a denúncia.');
     }
   };
 
-  return (
-    <SafeAreaProvider>
-      <KeyboardAvoidingView
-        style={styles.container}
-      >
-
-        {/* picker da faixa etaria */}
-        <Text style={styles.label}>Selecione sua faixa etária:</Text>
+  const formFields = [
+    {
+      key: 'faixaEtaria',
+      label: 'Selecione sua faixa etária:',
+      component: (
         <DropDownPicker
           open={faixaEtariaOpen}
           value={faixaEtaria}
@@ -98,19 +110,25 @@ export default function DenunciaScreen() {
             if (open) {
               setPeriodoOpen(false);
               setTipoOpen(false);
+              setPlataformaOpen(false);
+              setReportOpen(false);
             }
           }}
           setValue={setFaixaEtaria}
           setItems={setFaixaEtariaItems}
           placeholder="Selecione..."
           style={styles.picker}
+          listMode='SCROLLVIEW'
           dropDownContainerStyle={styles.dropdown}
-          zIndex={3000}
-          zIndexInverse={1000}
+          zIndex={5000}
+          zIndexInverse={4000}
         />
-
-        {/* picker do perido */}
-        <Text style={styles.label}>Período em que mais usa a internet:</Text>
+      ),
+    },
+    {
+      key: 'periodoDeUso',
+      label: 'Período em que mais usa a internet:',
+      component: (
         <DropDownPicker
           open={periodoOpen}
           value={periodoDeUso}
@@ -120,6 +138,8 @@ export default function DenunciaScreen() {
             if (open) {
               setFaixaEtariaOpen(false);
               setTipoOpen(false);
+              setPlataformaOpen(false);
+              setReportOpen(false);
             }
           }}
           setValue={setPeriodoDeUso}
@@ -127,12 +147,16 @@ export default function DenunciaScreen() {
           placeholder="Selecione..."
           style={styles.picker}
           dropDownContainerStyle={styles.dropdown}
-          zIndex={2000}
-          zIndexInverse={2000}
+          zIndex={4000}
+          listMode='SCROLLVIEW'
+          zIndexInverse={3000}
         />
-
-        {/* picker tipo */}
-        <Text style={styles.label}>Tipo de violação sofrida ou testemunhada:</Text>
+      ),
+    },
+    {
+      key: 'tipo',
+      label: 'Tipo de violação sofrida ou testemunhada:',
+      component: (
         <DropDownPicker
           open={tipoOpen}
           value={tipo}
@@ -142,20 +166,25 @@ export default function DenunciaScreen() {
             if (open) {
               setFaixaEtariaOpen(false);
               setPeriodoOpen(false);
-              
+              setPlataformaOpen(false);
+              setReportOpen(false);
             }
           }}
           setValue={setTipo}
           setItems={setTipoItems}
           placeholder="Selecione..."
           style={styles.picker}
+          listMode='SCROLLVIEW'
           dropDownContainerStyle={styles.dropdown}
-          zIndex={1000}
-          zIndexInverse={3000}
+          zIndex={3000}
+          zIndexInverse={2000}
         />
-
-        {/* picker plataforma */}
-        <Text style={styles.label}>Plataforma onde ocorreu:</Text>
+      ),
+    },
+    {
+      key: 'plataforma',
+      label: 'Plataforma onde ocorreu:',
+      component: (
         <DropDownPicker
           open={plataformaOpen}
           value={plataforma}
@@ -166,19 +195,107 @@ export default function DenunciaScreen() {
               setFaixaEtariaOpen(false);
               setPeriodoOpen(false);
               setTipoOpen(false);
+              setReportOpen(false);
             }
           }}
           setValue={setPlataforma}
           setItems={setPlataformaItems}
           placeholder="Selecione..."
           style={styles.picker}
+          listMode='SCROLLVIEW'
+          dropDownContainerStyle={styles.dropdown}
+          zIndex={2000}
+          zIndexInverse={1000}
+        />
+      ),
+    },
+    {
+      key: 'report',
+      label: 'A violação foi reportada à plataforma ou autoridades?',
+      component: (
+        <DropDownPicker
+          open={reportOpen}
+          value={report}
+          items={reportItems}
+          setOpen={(open) => {
+            setReportOpen(open);
+            if (open) {
+              setFaixaEtariaOpen(false);
+              setPeriodoOpen(false);
+              setTipoOpen(false);
+              setPlataformaOpen(false);
+            }
+          }}
+          setValue={setReport}
+          setItems={setReportItems}
+          placeholder="Selecione..."
+          style={styles.picker}
+          listMode='SCROLLVIEW'
           dropDownContainerStyle={styles.dropdown}
           zIndex={1000}
-          zIndexInverse={3000}
+          zIndexInverse={500}
         />
+      ),
+    },
+    {
+      key: 'descricao',
+      label: 'Descreva a violação ocorrida:',
+      component: (
+        <TextInput
+          style={styles.textArea}
+          placeholder="Digite aqui a descrição da violação..."
+          value={descricao}
+          onChangeText={setDescricao}
+          multiline
+          numberOfLines={20}
+          textAlignVertical="top"
+          autoCapitalize="sentences"
+          blurOnSubmit={false}
+        />
+      ),
+    },
+  ];
 
-        <Button title="Enviar Denúncia" onPress={enviarDenuncia} />
-      </KeyboardAvoidingView>
+  return (
+    <SafeAreaProvider>
+      <FlatList
+        data={formFields}
+        keyExtractor={(item) => item.key}
+        keyboardShouldPersistTaps="handled"
+        keyboardDismissMode="on-drag"
+        removeClippedSubviews={false}
+        ListHeaderComponent={
+          <>
+            <View>
+              <Text style={styles.titulo}>
+                Reportar uma Violação de Direitos Digitais
+              </Text>
+              <Text style={styles.descricao}>
+                Utilize este formulário para reportar anonimamente uma violação de direitos no ambiente digital.
+              </Text>
+            </View>
+
+            <View style={styles.infoContainer}>
+              <Text style={styles.info}>
+                <Text style={styles.important}>Importante:</Text> Este formulário é totalmente anônimo. Não coletamos dados pessoais que possam identificá-lo.
+              </Text>
+            </View>
+          </>
+        }
+        renderItem={({ item }) => (
+          <View>
+            <Text style={styles.label}>{item.label}</Text>
+            {item.component}
+          </View>
+        )}
+        ListFooterComponent={
+          <OrangeButton 
+          title = "Enviar denúncia"
+          handlePress={enviarDenuncia}
+          />
+        }
+        contentContainerStyle={styles.scrollContent}
+      />
     </SafeAreaProvider>
   );
 }
@@ -186,8 +303,49 @@ export default function DenunciaScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.light,
+  },
+  scrollContent: {
     padding: 15,
+    backgroundColor: COLORS.light
+  },
+  titulo:{
+    fontSize: 35,
+    color: COLORS.orange,
+    lineHeight: 35,
+    width: 400,
+    textAlign: 'center',
+    alignSelf: 'center',
+    fontFamily: 'Rajdhani-Bold',
+    padding: 35
+  },
+  descricao:{
+    fontSize: 20,
+    marginTop: -25,
+    textAlign: 'center',
+    color: COLORS.darkPurple,
+    fontFamily: 'Rajdhani-Regular',
+  },
+  infoContainer: {
+    width: '100%',
+    borderRadius: 10,
+    alignSelf:'center',
+    backgroundColor: COLORS.blue,
+    padding: 9,
+    margin: 30,
+    marginBottom: 40  
+  },
+  important:{
+    fontSize: 15,
+    color: COLORS.darkPurple,
+    textAlign: 'center',
+    fontFamily: 'Rajdhani-Bold',
+  },
+  info:{
+    alignSelf: 'center',
+    fontSize: 15,
+    color: COLORS.darkPurple,
+    textAlign: 'center',
+    fontFamily: 'Rajdhani-Regular',
   },
   label: {
     fontSize: 16,
@@ -199,7 +357,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#f0f0f0',
     color: COLORS.darkPurple,
     marginBottom: 20,
-    fontSize: 15
+    fontSize: 15,
+    borderColor: COLORS.orange
   },
-  
+  textArea: {
+    borderWidth: 1,
+    borderColor: COLORS.orange,
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 20,
+    backgroundColor: '#f0f0f0',
+    fontSize: 15,
+    textAlignVertical: 'top',
+  },
 });
