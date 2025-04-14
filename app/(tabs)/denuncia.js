@@ -284,27 +284,27 @@ export default function DenunciaScreen() {
                 <Text style={styles.important}>Importante:</Text> Este formulário é totalmente anônimo. Não coletamos dados pessoais que possam identificá-lo.
               </Text>
             </View>
-
-            <View style={styles.bordaBranca}>
-              <Text></Text>
-            </View>
           </View>
-
         }
         renderItem={({ item }) => (
-          <View style={styles.formContentContainer}>
-            <View style={styles.formItem}>
-              <Text style={styles.label}>{item.label}</Text>
-              {item.component}
+          <View style={styles.mainContainer}>
+            <View style={styles.formContentContainer}>
+              <View style={styles.formItem}>
+                <Text style={styles.label}>{item.label}</Text>
+                {item.component}
+              </View>
             </View>
           </View>
         )}
         ListFooterComponent={
+          <View style={styles.mainContainer}>
             <OrangeButton 
               title="Enviar denúncia"
               handlePress={enviarDenuncia}
             />
+          </View>
         }
+        contentContainerStyle={styles.scrollContent}
       />
     </SafeAreaProvider>
   );
@@ -408,18 +408,22 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     marginBottom: 20,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: COLORS.light,
     fontSize: 15,
     textAlignVertical: 'top',
   },
   formContentContainer: {
-    marginHorizontal: 15,
-    marginVertical: 5,
-    marginTop: -10,
     alignItems: 'center',
     justifyContent: 'center',
   },
   formItem: {
-    width: '95%',    
+    width: '95%',
+    margin: 15    
+  },
+  mainContainer: {
+    backgroundColor: COLORS.light,
+    padding: 15,
+    borderRadius: 30,
+    marginTop: -45
   },
 });
