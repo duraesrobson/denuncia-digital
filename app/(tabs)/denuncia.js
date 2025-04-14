@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Alert, TextInput, FlatList } from 'react-native';
+import { View, Text, StyleSheet, Alert, TextInput, FlatList, Image } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { COLORS } from 'app/styles/global';
 import { collection, addDoc } from 'firebase/firestore';
@@ -265,13 +265,17 @@ export default function DenunciaScreen() {
         keyboardDismissMode="on-drag"
         removeClippedSubviews={false}
         ListHeaderComponent={
-          <>
+          <View style={styles.headerContainer}>
             <View>
+              <Image 
+                style={styles.bgImg}
+                source={require('@assets/images/squares-background.png')}
+              />
               <Text style={styles.titulo}>
-                Reportar uma Violação de Direitos Digitais
+                Denunciar uma Violação de Direitos Digitais
               </Text>
               <Text style={styles.descricao}>
-                Utilize este formulário para reportar anonimamente uma violação de direitos no ambiente digital.
+                Utilize este formulário para denunciar anonimamente uma violação de direitos no ambiente digital.
               </Text>
             </View>
 
@@ -280,21 +284,27 @@ export default function DenunciaScreen() {
                 <Text style={styles.important}>Importante:</Text> Este formulário é totalmente anônimo. Não coletamos dados pessoais que possam identificá-lo.
               </Text>
             </View>
-          </>
+
+            <View style={styles.bordaBranca}>
+              <Text></Text>
+            </View>
+          </View>
+
         }
         renderItem={({ item }) => (
-          <View>
-            <Text style={styles.label}>{item.label}</Text>
-            {item.component}
+          <View style={styles.formContentContainer}>
+            <View style={styles.formItem}>
+              <Text style={styles.label}>{item.label}</Text>
+              {item.component}
+            </View>
           </View>
         )}
         ListFooterComponent={
-          <OrangeButton 
-          title = "Enviar denúncia"
-          handlePress={enviarDenuncia}
-          />
+            <OrangeButton 
+              title="Enviar denúncia"
+              handlePress={enviarDenuncia}
+            />
         }
-        contentContainerStyle={styles.scrollContent}
       />
     </SafeAreaProvider>
   );
@@ -304,9 +314,36 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  headerContainer: {
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    backgroundColor: COLORS.darkPurple,
+    position: 'relative',
+  },
+  bgImg: {
+    position: 'absolute',
+    width: 600,
+    height: 600,
+    top: -180,
+    left: -30,
+    resizeMode: 'cover',
+    opacity: 0.05,
+    zIndex: 1,
+  },
+  bordaBranca: {
+    backgroundColor: COLORS.light,
+    marginTop:340,
+    width:360,
+    height: 100,
+    borderRadius:30,
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf:'center'
+  },
   scrollContent: {
-    padding: 15,
-    backgroundColor: COLORS.light
+    backgroundColor: COLORS.light,
+    borderRadius: 20
   },
   titulo:{
     fontSize: 35,
@@ -316,33 +353,37 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     alignSelf: 'center',
     fontFamily: 'Rajdhani-Bold',
-    padding: 35
+    padding: 35,
+    marginTop: -15,
+    zIndex: 2,
   },
   descricao:{
     fontSize: 20,
     marginTop: -25,
     textAlign: 'center',
-    color: COLORS.darkPurple,
+    color: COLORS.light,
     fontFamily: 'Rajdhani-Regular',
+    zIndex: 2,
   },
   infoContainer: {
-    width: '100%',
+    width: 310,
     borderRadius: 10,
     alignSelf:'center',
     backgroundColor: COLORS.blue,
-    padding: 9,
-    margin: 30,
-    marginBottom: 40  
+    padding: 5,
+    margin: 20,
+    marginBottom: 50,
+    zIndex: 2,
   },
   important:{
-    fontSize: 16,
+    fontSize: 14,
     color: COLORS.darkPurple,
     textAlign: 'center',
     fontFamily: 'Rajdhani-Bold',
   },
   info:{
     alignSelf: 'center',
-    fontSize: 16,
+    fontSize: 14,
     color: COLORS.darkPurple,
     textAlign: 'center',
     fontFamily: 'Rajdhani-Regular',
@@ -369,5 +410,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#f0f0f0',
     fontSize: 15,
     textAlignVertical: 'top',
+  },
+  formContentContainer: {
+    marginHorizontal: 15,
+    marginVertical: 5,
+    marginTop: -10
+  },
+  formItem: {
+    width: '100%',
   },
 });
