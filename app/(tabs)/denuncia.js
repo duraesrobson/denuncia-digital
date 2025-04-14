@@ -319,6 +319,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     backgroundColor: COLORS.darkPurple,
     position: 'relative',
+    marginBottom: 15
   },
   bgImg: {
     position: 'absolute',
@@ -331,7 +332,7 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   bordaBranca: {
-    backgroundColor: COLORS.light,
+    backgroundColor: "#f0f0f0",
     marginTop:340,
     width:360,
     height: 100,
@@ -343,7 +344,7 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     backgroundColor: COLORS.light,
-    borderRadius: 20
+    borderRadius: 20,
   },
   titulo:{
     fontSize: 35,
@@ -395,11 +396,11 @@ const styles = StyleSheet.create({
     color: COLORS.darkPurple,
   },
   picker: {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: COLORS.light,
     color: COLORS.darkPurple,
     marginBottom: 20,
     fontSize: 15,
-    borderColor: COLORS.orange
+    borderColor: COLORS.orange,
   },
   textArea: {
     borderWidth: 1,
@@ -414,9 +415,11 @@ const styles = StyleSheet.create({
   formContentContainer: {
     marginHorizontal: 15,
     marginVertical: 5,
-    marginTop: -10
+    marginTop: -10,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   formItem: {
-    width: '100%',
+    width: '95%',    
   },
 });
