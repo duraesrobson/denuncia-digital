@@ -1,7 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Image, Linking } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS } from 'app/styles/global';
+import ContentCard from '@components/ContentCard';
+
 
 export default function Home() {
     return (
@@ -27,10 +29,21 @@ export default function Home() {
               </View>
 
               <View style={styles.mainContainer}>
-                <Text style={styles.mainTitle}>Como funciona?</Text>
-                <Text style={styles.mainText}>
-                  Aqui vai o conteúdo principal da sua aplicação
-                </Text>
+                <ContentCard 
+                  imageSource={require('@assets/images/ods16.jpg')}
+                  title="ODS 16"
+                  description="O ODS 16 visa promover sociedades pacíficas e inclusivas para o desenvolvimento sustentável, proporcionar o acesso à justiça para todos e construir instituições eficazes, responsáveis e inclusivas em todos os níveis."
+                  buttonTitle="Saiba mais"
+                  onPress={() => Linking.openURL('https://odsbrasil.gov.br/objetivo/objetivo?n=16')}
+                />
+                <ContentCard
+                  imageSource={require('@assets/images/lupa.jpg')} 
+                  title="Participe da nossa pesquisa"
+                  description="Ajude-nos a entender melhor as violações de direitos humanos no ambiente digital respondendo ao nosso questionário anônimo."
+                  buttonTitle="Responder Questionário"
+                  //colocar link do form
+                  onPress={() => console.log('Botão Análise pressionado')}
+                />
               </View>
             </>
           }
@@ -51,7 +64,6 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    borderRadius: 800
   },
   headerContainer: {
     paddingHorizontal: 15,
@@ -118,18 +130,8 @@ const styles = StyleSheet.create({
     padding: 20,
     minHeight: 400,
     borderRadius: 30,
-    marginTop: -30
-  },
-  mainTitle: {
-    fontSize: 24,
-    color: COLORS.darkPurple,
-    fontFamily: 'Rajdhani-Bold',
-    marginBottom: 15,
-  },
-  mainText: {
-    fontSize: 16,
-    color: COLORS.darkPurple,
-    fontFamily: 'Rajdhani-Regular',
+    marginTop: -30,
+    gap: 50, 
   },
   footerContainer: {
     backgroundColor: COLORS.blue,
