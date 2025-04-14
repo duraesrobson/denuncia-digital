@@ -335,14 +335,14 @@ const styles = StyleSheet.create({
     marginBottom: 40  
   },
   important:{
-    fontSize: 15,
+    fontSize: 16,
     color: COLORS.darkPurple,
     textAlign: 'center',
     fontFamily: 'Rajdhani-Bold',
   },
   info:{
     alignSelf: 'center',
-    fontSize: 15,
+    fontSize: 16,
     color: COLORS.darkPurple,
     textAlign: 'center',
     fontFamily: 'Rajdhani-Regular',
