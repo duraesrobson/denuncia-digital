@@ -22,19 +22,18 @@ export default function TabsLayout() {
           headerTintColor: COLORS.light,
           tabBarStyle: {
             backgroundColor: COLORS.darkPurple,
-            height: 80,
-            paddingTop: 8,
-            paddingBottom: 8,
+            height: 60,
+            paddingTop: 6,
+            paddingBottom: 4,
           },
           tabBarActiveTintColor: COLORS.orange,
           tabBarInactiveTintColor: COLORS.blue,
           tabBarLabelStyle: {
-            fontSize: 13,
+            fontSize: 15,
             fontFamily: 'Rajdhani-SemiBold',
-            marginTop: 4,
           },
           tabBarItemStyle: {
-            paddingVertical: 4,
+            paddingVertical: -4,
           },
         }}
       >
@@ -42,8 +41,8 @@ export default function TabsLayout() {
           name="home"
           options={{
             title: 'Início',
-            tabBarIcon: ({ color }) => (
-              <TabBarIcon name="home" color={color} />
+            tabBarIcon: ({ color, size }) => (
+              <TabBarIcon name="home" color={color} size={28} />
             ),
           }}
         />
@@ -51,8 +50,8 @@ export default function TabsLayout() {
           name="denuncia"
           options={{
             title: 'Denúncia',
-            tabBarIcon: ({ color }) => (
-              <TabBarIcon name="file-plus" color={color} />
+            tabBarIcon: ({ color, size }) => (
+              <TabBarIcon name="file-plus" size={28} color={color} />
             ),
           }}
         />
@@ -60,12 +59,12 @@ export default function TabsLayout() {
           name="dashboard"
           options={{
             title: 'Dashboard',
-            tabBarIcon: ({ color }) => (
-              <TabBarIcon name="bar-chart-2" color={color} />
+            tabBarIcon: ({ color, size }) => (
+              <TabBarIcon name="bar-chart-2" color={color} size={28} />
             ),
           }}
         />
       </Tabs>
     </>
   );
-} 
+}

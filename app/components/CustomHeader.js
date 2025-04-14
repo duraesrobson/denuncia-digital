@@ -10,17 +10,17 @@ const CustomHeader = () => {
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.header}>
         <View style={styles.content}>
+        <Avatar
+          size={40}
+          rounded
+          onPress={() => router.back()}
+          icon={{ name: "arrow-left", type: "font-awesome", color: COLORS.light }}
+          containerStyle={{ backgroundColor: COLORS.darkPurple }}
+        />
         <Image
           source={require('@assets/images/logo-192.png')}
           style={styles.logo}
           resizeMode="contain"
-        />
-        <Avatar
-          size={45}
-          rounded
-          onPress={() => router.back()}
-          icon={{ name: "arrow-left", type: "font-awesome", color: COLORS.light }}
-          containerStyle={{ backgroundColor: COLORS.orange }}
         />
         </View>
 
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.darkPurple,
 },
   header: {
-    height: 90,
+    height: 60,
     backgroundColor: COLORS.darkPurple,
     justifyContent: 'center',
     alignItems: 'center',
@@ -45,15 +45,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: "space-evenly",
     alignItems: 'center',
-    gap: 140
+    gap: 170
   },
   logo: {
-    width: 140,
-    height: 140,
+    width: 110,
+    height: 110,
   },
   avatar: {
-    width: 140,
-    height: 140
+    width: 120,
+    height: 120
   }
 });
 
