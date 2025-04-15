@@ -39,25 +39,22 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: 300,
-    height: 370,
+    height: 300,
     backgroundColor: COLORS.light,
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'center',
   },
   image: {
-    width: 385,
-    height: 318,
-    marginTop: -165,
-    marginBottom: -80
-    
+    width: 285,
+    height: 285,
+    marginBottom: 10
   },
   title: {
     fontSize: 28,
     fontFamily: 'Rajdhani-Bold',
     color: COLORS.darkPurple,
     marginBottom: 10,
-    marginTop: -40
   },
   description: {
     fontSize: 18,

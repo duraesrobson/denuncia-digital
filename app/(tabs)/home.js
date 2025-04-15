@@ -1,4 +1,5 @@
 import React from 'react';
+import "@expo/metro-runtime";
 import { StyleSheet, Text, View, FlatList, Image, Linking } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS } from 'app/styles/global';
@@ -20,7 +21,7 @@ export default function Home() {
                     source={require('@assets/images/squares-background.png')}
                   />
                   <Text style={styles.titulo}>
-                    Bem-vindo ao Denúncia Digital
+                    Bem-vindo ao Denúncia <Text style={styles.tituloSpan}>Digital</Text>
                   </Text>
                   <Text style={styles.descricao}>
                     Este projeto visa monitorar e combater violações de direitos humanos no ambiente digital, alinhado ao Objetivo de Desenvolvimento Sustentável 16 da ONU: Paz, Justiça e Instituições Eficazes.
@@ -47,14 +48,14 @@ export default function Home() {
               </View>
             </>
           }
-          renderItem={() => null}
-          ListFooterComponent={
-            <View style={styles.footerContainer}>
-              <Text style={styles.footerText}>
-                Desenvolvido com apoio da ONU
-              </Text>
-            </View>
-          }
+          // renderItem={() => null}
+          // ListFooterComponent={
+          //   <View style={styles.footerContainer}>
+          //     <Text style={styles.footerText}>
+          //       Desenvolvido com apoio da ONU
+          //     </Text>
+          //   </View>
+          // }
           contentContainerStyle={styles.scrollContent}
         />
       </SafeAreaProvider>
@@ -83,9 +84,9 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   titulo:{
-    fontSize: 35,
+    fontSize: 45,
     color: COLORS.orange,
-    lineHeight: 35,
+    lineHeight: 40,
     width: 400,
     textAlign: 'center',
     alignSelf: 'center',
@@ -93,6 +94,9 @@ const styles = StyleSheet.create({
     padding: 35,
     marginTop: -15,
     zIndex: 2,
+  },
+  tituloSpan:{
+    color: COLORS.blue,
   },
   descricao:{
     fontSize: 20,
@@ -129,17 +133,18 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.light,
     padding: 20,
     minHeight: 400,
-    borderRadius: 30,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
     marginTop: -30,
-    gap: 50, 
+    gap: 40,
   },
   footerContainer: {
-    backgroundColor: COLORS.blue,
-    padding: 20,
+    backgroundColor: COLORS.orange,
+    padding: 10,
     alignItems: 'center',
   },
   footerText: {
-    color: COLORS.light,
+    color: COLORS.darkPurple,
     fontSize: 14,
     fontFamily: 'Rajdhani-Regular',
   },
