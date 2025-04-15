@@ -32,6 +32,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 14,
+    borderBottomWidth: 1,
+    borderColor: COLORS.light,
     backgroundColor: COLORS.primary,
   },
   title: {
@@ -48,7 +50,7 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   contentText: {
-    fontSize: 14,
+    fontSize: 18,
     fontFamily: 'Rajdhani-Regular',
     color: COLORS.light,
   },

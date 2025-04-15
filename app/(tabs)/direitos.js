@@ -36,25 +36,40 @@ export default function Home() {
               </View>
 
               <View style={styles.mainContainer}>
-                <Accordion
-                  title="Violação de Privacidade"
-                  content="Coleta e uso indevido de dados pessoais sem consentimento adequado, monitoramento ilegal das atividades online dos usuários, invasão de privacidade por meio de câmeras e microfones de dispositivos eletrônicos."
-                  expanded={expandedAccordion === 0}
-                  onPress={() => handleAccordionPress(0)}
-                />
-                <Accordion
-                  title="Teste2"
-                  content="Coleta e uso indevido de dados pessoais sem consentimento adequado, monitoramento ilegal das atividades online dos usuários, invasão de privacidade por meio de câmeras e microfones de dispositivos eletrônicos."
-                  expanded={expandedAccordion === 1}
-                  onPress={() => handleAccordionPress(1)}
-                />
+                <View style={styles.textContainer}>
+                  <Text style={styles.h1}>
+                    O QUE SÃO DIREITOS DIGITAIS?
+                  </Text>
+                  <Text style={styles.h3}>
+                    Os direitos digitais são extensões dos direitos humanos no ambiente digital. Eles incluem privacidade, liberdade de expressão, acesso à informação, direito ao esquecimento e proteção contra discriminação online.
+                  </Text>
+                </View>
 
-                <Accordion
-                  title="Teste2"
-                  content="Coleta e uso indevido de dados pessoais sem consentimento adequado, monitoramento ilegal das atividades online dos usuários, invasão de privacidade por meio de câmeras e microfones de dispositivos eletrônicos."
-                  expanded={expandedAccordion === 2}
-                  onPress={() => handleAccordionPress(2)}
-                />
+                <View>
+
+                  <Text style={styles.h1}>
+                    Principais Violações aos Direitos Digitais
+                  </Text>
+                  <Accordion
+                    title="Violação de Privacidade"
+                    content="Coleta e uso indevido de dados pessoais sem consentimento adequado, monitoramento ilegal das atividades online dos usuários, invasão de privacidade por meio de câmeras e microfones de dispositivos eletrônicos."
+                    expanded={expandedAccordion === 0}
+                    onPress={() => handleAccordionPress(0)}
+                  />
+                  <Accordion
+                    title="Teste2"
+                    content="Coleta e uso indevido de dados pessoais sem consentimento adequado, monitoramento ilegal das atividades online dos usuários, invasão de privacidade por meio de câmeras e microfones de dispositivos eletrônicos."
+                    expanded={expandedAccordion === 1}
+                    onPress={() => handleAccordionPress(1)}
+                  />
+
+                  <Accordion
+                    title="Teste2"
+                    content="Coleta e uso indevido de dados pessoais sem consentimento adequado, monitoramento ilegal das atividades online dos usuários, invasão de privacidade por meio de câmeras e microfones de dispositivos eletrônicos."
+                    expanded={expandedAccordion === 2}
+                    onPress={() => handleAccordionPress(2)}
+                  />
+                </View>
 
 
 
@@ -127,28 +142,33 @@ const styles = StyleSheet.create({
     fontFamily: 'Rajdhani-Regular',
     zIndex: 2,
   },
-  infoContainer: {
-    width: 310,
-    borderRadius: 10,
-    alignSelf:'center',
-    backgroundColor: COLORS.blue,
-    padding: 5,
-    margin: 20,
-    marginBottom: 50,
-    zIndex: 2,
+  textContainer: {
+    backgroundColor: COLORS.light,
+    borderTopLeftRadius: 30,
+    borderBottomLeftRadius: 30,
+    borderTopRightRadius: 30,
+    padding: 20,
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
   },
-  important:{
-    fontSize: 14,
-    color: COLORS.darkPurple,
-    textAlign: 'center',
+  h1: {
     fontFamily: 'Rajdhani-Bold',
+    color: COLORS.orange,
+    lineHeight: 30,
+    margin: 13,
+    fontSize: 30,
+    textAlign: 'center'
   },
-  info:{
-    alignSelf: 'center',
-    fontSize: 14,
-    color: COLORS.darkPurple,
+  h3: {
+    fontFamily: 'Rajdhani-SemiBold',
+    fontSize: 18,
     textAlign: 'center',
-    fontFamily: 'Rajdhani-Regular',
+    width: 350,
+    alignSelf: 'center',
+    marginBottom: 5
   },
   mainContainer: {
     backgroundColor: COLORS.light,
