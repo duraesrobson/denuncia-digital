@@ -25,6 +25,10 @@ export default function TabsLayout() {
             height: 60,
             paddingTop: 6,
             paddingBottom: 4,
+            alignSelf:'center',
+            width: '100%',
+            justifyContent: 'center',
+            alignItems: 'center',
           },
           tabBarActiveTintColor: COLORS.orange,
           tabBarInactiveTintColor: COLORS.blue,
@@ -41,6 +45,15 @@ export default function TabsLayout() {
           name="home"
           options={{
             title: 'Início',
+            tabBarIcon: ({ color, size }) => (
+              <TabBarIcon name="home" color={color} size={28} />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="direitos"
+          options={{
+            title: 'Direitos',
             tabBarIcon: ({ color, size }) => (
               <TabBarIcon name="home" color={color} size={28} />
             ),

@@ -13,10 +13,11 @@ module.exports = function(api) {
             '@screens': './app/screens',
             '@assets': './assets',
             '@tabs': './app/tabs',
-            '@styles': './app/styles'
+            '@styles': './app/styles',
           },
         },
       ],
+      'react-native-reanimated/plugin',
     ],
   };
-}; 
+};
