@@ -331,25 +331,10 @@ const styles = StyleSheet.create({
     opacity: 0.05,
     zIndex: 1,
   },
-  bordaBranca: {
-    backgroundColor: "#f0f0f0",
-    marginTop:340,
-    width:360,
-    height: 100,
-    borderRadius:30,
-    position: 'absolute',
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf:'center'
-  },
-  scrollContent: {
-    backgroundColor: COLORS.light,
-    borderRadius: 20,
-  },
   titulo:{
-    fontSize: 35,
+    fontSize: 45,
     color: COLORS.orange,
-    lineHeight: 35,
+    lineHeight: 40,
     width: 400,
     textAlign: 'center',
     alignSelf: 'center',
