@@ -6,7 +6,6 @@ import OrangeButton from './OrangeButton';
 const ContentCard = ({ imageSource, title, description, buttonTitle, onPress }) => {
   return (
     <View style={styles.card}>
-      <View style={styles.imageContainer}>
         {imageSource && (
           <Image 
             source={imageSource}
@@ -14,7 +13,7 @@ const ContentCard = ({ imageSource, title, description, buttonTitle, onPress }) 
             resizeMode="contain"
           />
         )}
-      </View>
+      
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.description}>{description}</Text>
       <OrangeButton 
@@ -37,18 +36,11 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     marginTop: 40
   },
-  imageContainer: {
-    width: 300,
-    height: 300,
-    backgroundColor: COLORS.light,
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignSelf: 'center',
-  },
   image: {
+    alignSelf: 'center',
     width: 285,
     height: 285,
-    marginBottom: 10
+    margin: 25
   },
   title: {
     fontSize: 28,

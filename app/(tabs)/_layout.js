@@ -55,7 +55,7 @@ export default function TabsLayout() {
           options={{
             title: 'Direitos',
             tabBarIcon: ({ color, size }) => (
-              <TabBarIcon name="home" color={color} size={28} />
+              <TabBarIcon name="book-open" color={color} size={28} />
             ),
           }}
         />
