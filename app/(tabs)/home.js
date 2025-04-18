@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     backgroundColor: COLORS.darkPurple,
     position: 'relative',
-    height: 300, // Ajuste conforme necessário
+    height: 300, 
   },
   bgImg: {
     position: 'absolute',
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     marginTop: -30,
-    gap: 40,
+    gap: 25,
   },
   footerContainer: {
     backgroundColor: COLORS.orange,
@@ -148,4 +148,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Rajdhani-Regular',
   },
+  
 });

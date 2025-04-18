@@ -3,7 +3,6 @@ import "@expo/metro-runtime";
 import { StyleSheet, Text, View, FlatList, Image, Linking } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS } from 'app/styles/global';
-import ContentCard from '@components/ContentCard';
 import Accordion from '@components/Accordion';
 
 export default function Home() {
@@ -149,10 +148,10 @@ export default function Home() {
                   />
 
                   <View style={styles.legislacaoContainer}>
-                    
                     <Text style={styles.h1}>
                       Legislação Relevante
                     </Text>
+          
                     
                     <View style={styles.legislacaoTextContainer}>
                       <Text style={styles.legislacao}>
@@ -178,6 +177,37 @@ export default function Home() {
                       </Text>
                       <Text style={styles.h3}>
                         Tipifica delitos informáticos, como invasão de dispositivos.
+                      </Text>
+                    </View>
+
+                  </View>
+                  
+                  <View style={styles.apoioContainer}>
+
+                    <Text style={styles.h1}>
+                      Onde Buscar Apoio
+                    </Text>
+
+                    <View style={styles.apoioTextContainer}>
+                      <Text style={styles.apoioTitulo}>
+                        Apoio Jurídico
+                      </Text>
+                      <Text style={styles.h3}>
+                        - Delegacia de Crimes Cibernéticos {`\n`}
+                        - Defensoria Pública{`\n`}
+                        - Procon{`\n`}
+                        - OAB - Comissão de Direito Digital
+                      </Text>
+                    </View>
+
+                    <View style={styles.apoioTextContainer}>
+                      <Text style={styles.apoioTitulo}>
+                        Apoio Psicológico
+                      </Text>
+                      <Text style={styles.h3}>
+                      - CVV - Centro de Valorização da Vida (188) {`\n`}
+                      - SaferNet Brasil {`\n`}
+                      - CAPS - Centro de Atenção Psicossocial {`\n`}
                       </Text>
                     </View>
 
@@ -273,14 +303,16 @@ const styles = StyleSheet.create({
     color: COLORS.orange,
     lineHeight: 40,
     margin: 13,
+    width: 300,
     fontSize: 35,
+    alignSelf: 'center',
     textAlign: 'center'
   },
   h3: {
     fontFamily: 'Rajdhani-SemiBold',
     fontSize: 18,
-    textAlign: 'center',
-    width: 350,
+    textAlign: 'left',
+    width: 290,
     alignSelf: 'center',
     marginBottom: 5
   },
@@ -295,7 +327,6 @@ const styles = StyleSheet.create({
   },
   legislacaoContainer:{
     marginTop: 30,
-    marginBottom: 30
   },
   legislacaoTextContainer: {
     borderWidth: 2,
@@ -308,6 +339,33 @@ const styles = StyleSheet.create({
     marginBottom:10,
     backgroundColor: COLORS.darkPurple,
     color: COLORS.light,
+    padding:10,
+    fontSize:22,
+    fontFamily: 'Rajdhani-Bold',
+    textAlign: 'center',
+  },
+  apoioContainer: {
+    marginTop: 30,
+  },
+  apoioTextContainer:{
+    borderWidth: 2,
+    borderColor: COLORS.darkPurple,
+    borderRadius: 12,
+    marginBottom: 20
+  },
+  apoioText: {
+    borderRadius:10,
+    marginBottom:10,
+    padding:10,
+    fontSize:22,
+    fontFamily: 'Rajdhani-Bold',
+    textAlign: 'center',
+  },
+  apoioTitulo: {
+    borderRadius:10,
+    marginBottom:10,
+    backgroundColor: COLORS.blue,
+    color: COLORS.darkPurple,
     padding:10,
     fontSize:22,
     fontFamily: 'Rajdhani-Bold',
