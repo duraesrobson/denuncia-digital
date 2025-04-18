@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { collection, onSnapshot } from 'firebase/firestore';
+import { db } from '../../firebaseConfig';
 import { COLORS } from 'app/styles/global';
 
 export default function Dashboard() {

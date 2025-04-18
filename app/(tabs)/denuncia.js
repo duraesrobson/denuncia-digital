@@ -362,14 +362,14 @@ const styles = StyleSheet.create({
     zIndex: 2,
   },
   important:{
-    fontSize: 14,
+    fontSize: 16,
     color: COLORS.darkPurple,
     textAlign: 'center',
     fontFamily: 'Rajdhani-Bold',
   },
   info:{
     alignSelf: 'center',
-    fontSize: 14,
+    fontSize: 16,
     color: COLORS.darkPurple,
     textAlign: 'center',
     fontFamily: 'Rajdhani-Regular',
