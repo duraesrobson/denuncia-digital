@@ -6,7 +6,7 @@ const pegarMaisFrequente = (contagem) => {
   return Object.entries(contagem).sort((a, b) => b[1] - a[1])[0]; 
 };
 
-const ResumoCardsSection = ({ faixaEtariaData, tipoData, plataformaData }) => {
+const ResumoCardsSection = ({ faixaEtariaData, tipoData, plataformaData, impactoData }) => {
   const cards = [];
 
   if (Object.keys(plataformaData).length) {
@@ -25,6 +25,11 @@ const ResumoCardsSection = ({ faixaEtariaData, tipoData, plataformaData }) => {
     cards.push({ titulo: 'Faixa etária\nmais afetada', nome: nomeComAnos, total });
   }
 
+  if (Object.keys(impactoData).length) {
+    const [nome, total] = pegarMaisFrequente(impactoData);
+    cards.push({ titulo: 'Impacto mais causado', nome, total });
+  }
+
   return (
     <View style={{ marginBottom: 30 }}>
       <FlatList
@@ -35,6 +40,9 @@ const ResumoCardsSection = ({ faixaEtariaData, tipoData, plataformaData }) => {
         renderItem={({ item }) => (
           <DestaqueCard titulo={item.titulo} nome={item.nome} total={item.total} />
         )}
+        contentContainerStyle={{ 
+          paddingHorizontal: 10,
+        }}
       />
     </View>
   );
