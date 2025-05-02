@@ -80,20 +80,21 @@ export default function Dashboard() {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          width: '100%', // Garante que o container ocupe a largura inteira
-          gap: 20, // Adiciona espaço entre o gráfico e as legendas
-          paddingHorizontal: 10 // Garante algum padding para não ficar muito colado nas bordas
+          width: '100%', 
+          gap: 20, 
+          paddingHorizontal: 10
         }}>
-          {/* Gráfico PieChart */}
+
+          {/*grafico piechart*/}
           <PieChart
-            style={{ height: 300, width: 300 }} // Ajuste para garantir que o gráfico seja mais centralizado
+            style={{ height: 300, width: 300 }}
             data={pieData}
             outerRadius={'95%'}
           >
             <Labels />
           </PieChart>
 
-          {/* Legendas */}
+          {/*legendas do grafico*/}
           <View style={styles.legendContainer}>
             {Object.entries(dataObject).map(([label, count], index) => {
               const legendLabel = title === 'Denúncias por Faixa Etária' ? `${label} anos` : label;
@@ -179,7 +180,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     backgroundColor: COLORS.darkPurple,
     position: 'relative',
-    height: 300, // Ajuste conforme necessário
+    height: 300, 
   },
   mainContainer: {
     backgroundColor: COLORS.light,
@@ -199,7 +200,7 @@ const styles = StyleSheet.create({
     alignSelf:'center',
     borderColor: COLORS.darkPurple,
     borderRadius: 12,
-    marginBottom: 20
+    marginBottom: 70
   },
   apoioTitulo: {
     borderRadius:10,
@@ -253,7 +254,7 @@ const styles = StyleSheet.create({
     margin: 13,
     marginTop: 50,
     width: 300,
-    fontSize: 35,
+    fontSize: 40,
     alignSelf: 'center',
     textAlign: 'center'
   },
@@ -275,7 +276,6 @@ const styles = StyleSheet.create({
   destaqueCardContainer: {
     // backgroundColor: '#151123',
     width: '100%',
-    marginTop: 10
   },
   chartContainer: {
     marginBottom: 30,
