@@ -177,7 +177,7 @@ export default function DenunciaScreen() {
           listMode='SCROLLVIEW'
           dropDownContainerStyle={styles.dropdown}
           zIndex={3000}
-          zIndexInverse={2000}
+          zIndexInverse={5000}
         />
       ),
     },
@@ -205,7 +205,7 @@ export default function DenunciaScreen() {
           listMode='SCROLLVIEW'
           dropDownContainerStyle={styles.dropdown}
           zIndex={2000}
-          zIndexInverse={1000}
+          zIndexInverse={5000}
         />
       ),
     },
