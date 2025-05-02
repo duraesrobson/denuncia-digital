@@ -43,7 +43,7 @@ export default function Home() {
                   description="Ajude-nos a entender melhor as violações de direitos humanos no ambiente digital respondendo ao nosso questionário anônimo."
                   buttonTitle="Responder Questionário"
                   //TODO: colocar link do form
-                  onPress={() => console.log('Botão Análise pressionado')}
+                  onPress={() => Linking.openURL('https://forms.gle/nCgzQ3MwDv51C3n7A')}
                 />
               </View>
             </>

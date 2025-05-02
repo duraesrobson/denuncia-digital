@@ -12,23 +12,31 @@ export default function Dashboard() {
   const [faixaEtariaData, setFaixaEtariaData] = useState({});
   const [tipoData, setTipoData] = useState({});
   const [plataformaData, setPlataformaData] = useState({});
+  const [periodoData, setPeriodoData] = useState({});
+  const [impactoData, setImpactoData] = useState({});
 
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, 'denuncias'), (snapshot) => {
       const faixaContagem = {};
       const tipoContagem = {};
       const plataformaContagem = {};
+      const periodoContagem = {};
+      const impactoContagem = {};
 
       snapshot.forEach(doc => {
         const data = doc.data();
         if (data.faixaEtaria) faixaContagem[data.faixaEtaria] = (faixaContagem[data.faixaEtaria] || 0) + 1;
         if (data.tipo) tipoContagem[data.tipo] = (tipoContagem[data.tipo] || 0) + 1;
         if (data.plataforma) plataformaContagem[data.plataforma] = (plataformaContagem[data.plataforma] || 0) + 1;
+        if (data.periodoDeUso) periodoContagem[data.periodoDeUso] = (periodoContagem[data.periodoDeUso] || 0) + 1;
+        if (data.impacto) impactoContagem[data.impacto] = (impactoContagem[data.impacto] || 0) + 1;
       });
 
       setFaixaEtariaData(faixaContagem);
       setTipoData(tipoContagem);
       setPlataformaData(plataformaContagem);
+      setPeriodoData(periodoContagem);
+      setImpactoData(impactoContagem);
     });
 
     return () => unsubscribe();
@@ -138,11 +146,17 @@ export default function Dashboard() {
               faixaEtariaData={faixaEtariaData}
               tipoData={tipoData}
               plataformaData={plataformaData}
+              impactoData={impactoData}
+              periodoData={periodoData}
             />
           </View>
+
           {renderPieChart('Denúncias por Faixa Etária', faixaEtariaData)}
           {renderPieChart('Tipos de Violação', tipoData)}
           {renderPieChart('Plataformas Reportadas', plataformaData)}
+          {renderPieChart('Impactos Reportados', impactoData)}
+          {renderPieChart('Horário das Violações', periodoData)}
+
           <View style={styles.apoioContainer}>
 
             <Text style={styles.h1}>

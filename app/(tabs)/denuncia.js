@@ -12,12 +12,14 @@ export default function DenunciaScreen() {
   const [periodoOpen, setPeriodoOpen] = useState(false);
   const [tipoOpen, setTipoOpen] = useState(false);
   const [plataformaOpen, setPlataformaOpen] = useState(false);
+  const [impactoOpen, setImpactoOpen] = useState(false);
   const [reportOpen, setReportOpen] = useState(false);
 
   const [faixaEtaria, setFaixaEtaria] = useState('');
   const [periodoDeUso, setPeriodoDeUso] = useState('');
   const [tipo, setTipo] = useState('');
   const [plataforma, setPlataforma] = useState('');
+  const [impacto, setImpacto] = useState('');
   const [report, setReport] = useState('');
   const [descricao, setDescricao] = useState('');
 
@@ -31,21 +33,25 @@ export default function DenunciaScreen() {
   ]);
 
   const [periodoItems, setPeriodoItems] = useState([
-    { label: 'Manhã', value: 'manha' },
-    { label: 'Tarde', value: 'tarde' },
-    { label: 'Noite', value: 'noite' },
-    { label: 'Madrugada', value: 'madrugada' },
+    { label: 'Manhã (06-12h)', value: 'manha' },
+    { label: 'Tarde (12-18h)', value: 'tarde' },
+    { label: 'Noite (18-00h)', value: 'noite' },
+    { label: 'Madrugada (00-06h)', value: 'madrugada' },
   ]);
 
   const [tipoItems, setTipoItems] = useState([
     { label: 'Violação de Privacidade', value: 'privacidade' },
     { label: 'Cyberbullying', value: 'cyberbullying' },
     { label: 'Discurso de Ódio', value: 'discursoOdio' },
-    { label: 'Ciberataque', value: 'ciberataque' },
+    { label: 'Ciberataque ou invasão de dispositivos/contas', value: 'ciberataque' },
+    { label: 'Desinformação / Fake News', value: 'fakenews' },
+    { label: 'Stalking digital (perseguição online', value: 'stalking' },
+    { label: 'Exposição não consentida de informações pessoais (doxxing)', value: 'doxxing' },
+    { label: 'Fraude ou Crime Financeiro', value: 'fraude' },
+    { label: 'Compartilhamento não consensual de imagens íntimas', value: 'conteudoIntimo' },
+    { label: 'Perfil falso / identidade falsa', value: 'falsidadeIdeologica' },
     { label: 'Vigilância Não Autorizada', value: 'vigilancia' },
     { label: 'Censura / Restrição à Liberdade de Expressão', value: 'censura' },
-    { label: 'Fraude ou Crime Financeiro', value: 'fraude' },
-    { label: 'Desinformação / Fake News', value: 'fakenews' },
     { label: 'Outro', value: 'outro' },
   ]);
 
@@ -58,8 +64,17 @@ export default function DenunciaScreen() {
     { label: 'YouTube', value: 'youtube' },
     { label: 'Discord', value: 'discord' },
     { label: 'Telegram', value: 'telegram' },
+    { label: 'Reddit', value: 'reddit' },
     { label: 'Outro', value: 'outraPlataforma' },
   ]);
+
+  const [impactoItems, setImpactoItems] = useState([
+    { label: 'Emocional/Psicológico', value: 'emocional' },
+    { label: 'Financeiro', value: 'financeiro' },
+    { label: 'Profissional', value: 'profissional' },
+    { label: 'Social', value: 'social' },
+    { label: 'Múltiplos impactos', value: 'multiplos' },
+]);
 
   const [reportItems, setReportItems] = useState([
     { label: 'Sim', value: 'reportado' },
@@ -67,7 +82,7 @@ export default function DenunciaScreen() {
   ]);
 
   const enviarDenuncia = async () => {
-    if (!faixaEtaria || !periodoDeUso || !tipo || !plataforma || !report || !descricao) {
+    if (!faixaEtaria || !periodoDeUso || !tipo || !plataforma || !impacto || !report || !descricao) {
       Alert.alert('Erro', 'Preencha todos os campos');
       return;
     }
@@ -78,6 +93,7 @@ export default function DenunciaScreen() {
         periodoDeUso,
         tipo,
         plataforma,
+        impacto,
         report,
         descricao,
         criadoEm: new Date(),
@@ -88,6 +104,7 @@ export default function DenunciaScreen() {
       setPeriodoDeUso('');
       setTipo('');
       setPlataforma('');
+      setImpacto('');
       setReport('');
       setDescricao('');
     } catch (error) {
@@ -111,6 +128,7 @@ export default function DenunciaScreen() {
               setPeriodoOpen(false);
               setTipoOpen(false);
               setPlataformaOpen(false);
+              setImpactoOpen(false);
               setReportOpen(false);
             }
           }}
@@ -127,7 +145,7 @@ export default function DenunciaScreen() {
     },
     {
       key: 'periodoDeUso',
-      label: 'Período em que mais usa a internet:',
+      label: 'Período em que ocorreu a violação:',
       component: (
         <DropDownPicker
           open={periodoOpen}
@@ -139,6 +157,7 @@ export default function DenunciaScreen() {
               setFaixaEtariaOpen(false);
               setTipoOpen(false);
               setPlataformaOpen(false);
+              setImpactoOpen(false);
               setReportOpen(false);
             }
           }}
@@ -167,6 +186,7 @@ export default function DenunciaScreen() {
               setFaixaEtariaOpen(false);
               setPeriodoOpen(false);
               setPlataformaOpen(false);
+              setImpactoOpen(false);
               setReportOpen(false);
             }
           }}
@@ -195,6 +215,7 @@ export default function DenunciaScreen() {
               setFaixaEtariaOpen(false);
               setPeriodoOpen(false);
               setTipoOpen(false);
+              setImpactoOpen(false);
               setReportOpen(false);
             }
           }}
@@ -209,6 +230,37 @@ export default function DenunciaScreen() {
         />
       ),
     },
+
+    {
+      key: 'impacto',
+      label: 'Principal impacto sofrido:',
+      component: (
+        <DropDownPicker
+          open={impactoOpen}
+          value={impacto}
+          items={impactoItems}
+          setOpen={(open) => {
+            setImpactoOpen(open);
+            if (open) {
+              setFaixaEtariaOpen(false);
+              setPeriodoOpen(false);
+              setTipoOpen(false);
+              setReportOpen(false);
+              setPlataformaOpen(false);
+            }
+          }}
+          setValue={setImpacto}
+          setItems={setImpactoItems}
+          placeholder="Selecione..."
+          style={styles.picker}
+          listMode='SCROLLVIEW'
+          dropDownContainerStyle={styles.dropdown}
+          zIndex={1000}
+          zIndexInverse={6000}
+        />
+      ),
+    },
+
     {
       key: 'report',
       label: 'A violação foi reportada à plataforma ou autoridades?',
@@ -232,7 +284,7 @@ export default function DenunciaScreen() {
           style={styles.picker}
           listMode='SCROLLVIEW'
           dropDownContainerStyle={styles.dropdown}
-          zIndex={1000}
+          zIndex={900}
           zIndexInverse={500}
         />
       ),
