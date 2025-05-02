@@ -42,7 +42,7 @@ export default function Home() {
                   title="Participe da nossa pesquisa"
                   description="Ajude-nos a entender melhor as violações de direitos humanos no ambiente digital respondendo ao nosso questionário anônimo."
                   buttonTitle="Responder Questionário"
-                  //colocar link do form
+                  //TODO: colocar link do form
                   onPress={() => console.log('Botão Análise pressionado')}
                 />
               </View>
