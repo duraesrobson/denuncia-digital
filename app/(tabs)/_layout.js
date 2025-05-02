@@ -22,9 +22,9 @@ export default function TabsLayout() {
           headerTintColor: COLORS.light,
           tabBarStyle: {
             backgroundColor: COLORS.darkPurple,
-            height: 60,
-            paddingTop: 6,
-            paddingBottom: 4,
+            height: 70,
+            paddingTop: 10,
+            paddingBottom: 12,
             alignSelf:'center',
             width: '100%',
             justifyContent: 'center',
@@ -33,7 +33,7 @@ export default function TabsLayout() {
           tabBarActiveTintColor: COLORS.orange,
           tabBarInactiveTintColor: COLORS.blue,
           tabBarLabelStyle: {
-            fontSize: 15,
+            fontSize: 14,
             fontFamily: 'Rajdhani-SemiBold',
           },
           tabBarItemStyle: {

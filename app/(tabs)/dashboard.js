@@ -275,7 +275,7 @@ const styles = StyleSheet.create({
   destaqueCardContainer: {
     // backgroundColor: '#151123',
     width: '100%',
-    marginTop: 40
+    marginTop: 10
   },
   chartContainer: {
     marginBottom: 30,

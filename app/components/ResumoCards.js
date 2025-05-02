@@ -16,7 +16,7 @@ const ResumoCardsSection = ({ faixaEtariaData, tipoData, plataformaData }) => {
 
   if (Object.keys(tipoData).length) {
     const [nome, total] = pegarMaisFrequente(tipoData);
-    cards.push({ titulo: 'Tipo de denúncia mais comum', nome, total });
+    cards.push({ titulo: 'Tipo de denúncia\nmais comum', nome, total });
   }
 
   if (Object.keys(faixaEtariaData).length) {
