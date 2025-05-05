@@ -103,36 +103,6 @@ export default function Home() {
                   />
 
                   <Accordion
-                    title="Vigilância Não Autorizada"
-                    content={[
-                      "Monitoramento de atividades online ou offline sem o consentimento da pessoa, podendo envolver uso de spyware, câmeras ocultas, escutas ilegais ou rastreamento digital. \n \n",
-
-                      <Text key="como-proteger-vigilancia" style={{ fontWeight: 'bold' }}>Como se proteger:</Text>, 
-                      " Usar antivírus, manter privacidade das redes sociais, revisar permissões de apps e dispositivos. \n \n",
-
-                      <Text key="como-denunciar-vigilancia" style={{ fontWeight: 'bold' }}>Como denunciar:</Text>,  
-                      " Delegacia de Crimes Cibernéticos, SaferNet, órgãos de proteção de dados."
-                    ]}
-                    expanded={expandedAccordion === 5}
-                    onPress={() => handleAccordionPress(5)}
-                  />
-
-                  <Accordion
-                    title="Fraude ou Crime Financeiro"
-                    content={[
-                      "Atos criminosos que visam enganar pessoas ou empresas para obter vantagens financeiras, como golpes bancários, clonagem de cartões, e-commerce fraudulento. \n \n",
-
-                      <Text key="como-proteger-fraude" style={{ fontWeight: 'bold' }}>Como se proteger:</Text>, 
-                      " Verificar sempre a autenticidade de sites e contatos, ativar autenticação em dois fatores, monitorar extratos bancários. \n \n",
-
-                      <Text key="como-denunciar-fraude" style={{ fontWeight: 'bold' }}>Como denunciar:</Text>,  
-                      " Delegacia de Crimes Cibernéticos, Banco responsável, Procon, SaferNet."
-                    ]}
-                    expanded={expandedAccordion === 6}
-                    onPress={() => handleAccordionPress(6)}
-                  />
-
-                  <Accordion
                     title="Desinformação / Fake News"
                     content={[
                       "Divulgação intencional de informações falsas ou enganosas com o objetivo de manipular, confundir ou influenciar pessoas. \n \n",
@@ -143,9 +113,112 @@ export default function Home() {
                       <Text key="como-denunciar-fakenews" style={{ fontWeight: 'bold' }}>Como denunciar:</Text>,  
                       " Plataformas de redes sociais, SaferNet, Agência Lupa, Aos Fatos."
                     ]}
+                    expanded={expandedAccordion === 5}
+                    onPress={() => handleAccordionPress(5)}
+                  />
+
+                  <Accordion
+                    title="Stalking digital (perseguição online)"
+                    content={[
+                      "Monitoramento obsessivo, envio constante de mensagens, espionagem de atividades online ou perseguição por meio de redes sociais e aplicativos, causando medo ou desconforto. \n \n",
+
+                      <Text key="como-proteger-stalking" style={{ fontWeight: 'bold' }}>Como se proteger:</Text>, 
+                      " Ajustar configurações de privacidade, evitar compartilhar rotinas e localização, bloquear o agressor e manter evidências. \n \n",
+
+                      <Text key="como-denunciar-stalking" style={{ fontWeight: 'bold' }}>Como denunciar:</Text>,  
+                      " Delegacia especializada em crimes cibernéticos, Polícia Civil, Ministério Público, e plataformas onde ocorre a perseguição."
+                    ]}
+                    expanded={expandedAccordion === 6}
+                    onPress={() => handleAccordionPress(6)}
+                  />
+
+                  <Accordion
+                    title="Exposição não consentida de informações pessoais (doxxing)"
+                    content={[
+                      "Divulgação pública de dados pessoais como endereço, telefone, CPF, fotos ou outras informações privadas sem consentimento, geralmente com intenção de constranger, ameaçar ou expor alguém. \n \n",
+                  
+                      <Text key="como-proteger-doxxing" style={{ fontWeight: 'bold' }}>Como se proteger:</Text>, 
+                      " Limitar o compartilhamento de dados pessoais online, revisar configurações de privacidade e usar senhas fortes. \n \n",
+                  
+                      <Text key="como-denunciar-doxxing" style={{ fontWeight: 'bold' }}>Como denunciar:</Text>,  
+                      " Delegacia de crimes cibernéticos, plataformas onde houve a exposição e órgãos como a SaferNet ou o Ministério Público."
+                    ]}
                     expanded={expandedAccordion === 7}
                     onPress={() => handleAccordionPress(7)}
                   />
+                    <Accordion
+                      title="Fraude ou Crime Financeiro"
+                      content={[
+                        "Atos criminosos que visam enganar pessoas ou empresas para obter vantagens financeiras, como golpes bancários, clonagem de cartões, e-commerce fraudulento. \n \n",
+  
+                        <Text key="como-proteger-fraude" style={{ fontWeight: 'bold' }}>Como se proteger:</Text>, 
+                        " Verificar sempre a autenticidade de sites e contatos, ativar autenticação em dois fatores, monitorar extratos bancários. \n \n",
+  
+                        <Text key="como-denunciar-fraude" style={{ fontWeight: 'bold' }}>Como denunciar:</Text>,  
+                        " Delegacia de Crimes Cibernéticos, Banco responsável, Procon, SaferNet."
+                      ]}
+                      expanded={expandedAccordion === 8}
+                      onPress={() => handleAccordionPress(8)}
+                    />
+
+                  <Accordion
+                    title="Compartilhamento não consensual de imagens íntimas"
+                    content={[
+                      "Divulgação, vazamento ou envio de fotos e vídeos íntimos de alguém sem o seu consentimento, prática também conhecida como 'revenge porn'. \n \n",
+                  
+                      <Text key="como-proteger-conteudo-intimo" style={{ fontWeight: 'bold' }}>Como se proteger:</Text>, 
+                      " Evite armazenar esse tipo de conteúdo em nuvem ou dispositivos vulneráveis, use autenticação em duas etapas e compartilhe somente com plena confiança. \n \n",
+                  
+                      <Text key="como-denunciar-conteudo-intimo" style={{ fontWeight: 'bold' }}>Como denunciar:</Text>,  
+                      " Delegacia especializada, Ministério Público, Disque 100, SaferNet e canais das próprias plataformas onde o conteúdo foi divulgado."
+                    ]}
+                    expanded={expandedAccordion === 9}
+                    onPress={() => handleAccordionPress(9)}
+                  />
+
+                  <Accordion
+                    title="Perfil falso / identidade falsa"
+                    content={[
+                      "Criação ou uso de perfis falsos em redes sociais ou plataformas digitais para enganar, fraudar ou prejudicar outras pessoas, caracterizando falsidade ideológica. \n \n",
+                  
+                      <Text key="como-proteger-identidade-falsa" style={{ fontWeight: 'bold' }}>Como se proteger:</Text>, 
+                      " Ative a verificação de identidade sempre que possível, desconfie de contatos suspeitos, não compartilhe dados pessoais com desconhecidos. \n \n",
+                  
+                      <Text key="como-denunciar-identidade-falsa" style={{ fontWeight: 'bold' }}>Como denunciar:</Text>,  
+                      " Plataformas onde o perfil falso está ativo, delegacias especializadas em crimes cibernéticos, e o portal SaferNet."
+                    ]}
+                    expanded={expandedAccordion === 10}
+                    onPress={() => handleAccordionPress(10)}
+                  />
+
+                    <Accordion
+                      title="Vigilância Não Autorizada"
+                      content={[
+                        "Monitoramento de atividades online ou offline sem o consentimento da pessoa, podendo envolver uso de spyware, câmeras ocultas, escutas ilegais ou rastreamento digital. \n \n",
+  
+                        <Text key="como-proteger-vigilancia" style={{ fontWeight: 'bold' }}>Como se proteger:</Text>, 
+                        " Usar antivírus, manter privacidade das redes sociais, revisar permissões de apps e dispositivos. \n \n",
+  
+                        <Text key="como-denunciar-vigilancia" style={{ fontWeight: 'bold' }}>Como denunciar:</Text>,  
+                        " Delegacia de Crimes Cibernéticos, SaferNet, órgãos de proteção de dados."
+                      ]}
+                      expanded={expandedAccordion === 11}
+                      onPress={() => handleAccordionPress(11)}
+                    />
+                    <Accordion
+                      title="Censura / Restrição à Liberdade de Expressão"
+                      content={[
+                        "Ato de impedir ou restringir a livre manifestação de ideias, opiniões ou informações no ambiente digital, por meios arbitrários ou ilegítimos. \n \n",
+                    
+                        <Text key="como-proteger-censura" style={{ fontWeight: 'bold' }}>Como se proteger:</Text>, 
+                        " Conheça seus direitos, utilize plataformas que respeitam a liberdade de expressão e registre qualquer tentativa de censura. \n \n",
+                    
+                        <Text key="como-denunciar-censura" style={{ fontWeight: 'bold' }}>Como denunciar:</Text>,  
+                        " Ministério Público, Ouvidorias de Direitos Humanos, e entidades como a Artigo 19 e a SaferNet."
+                      ]}
+                      expanded={expandedAccordion === 12}
+                      onPress={() => handleAccordionPress(12)}
+                    />
 
                   <View style={styles.legislacaoContainer}>
                     <Text style={styles.h1}>

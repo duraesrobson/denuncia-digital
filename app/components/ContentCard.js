@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import { COLORS } from '../styles/global';
 import OrangeButton from './OrangeButton';
 
-const ContentCard = ({ imageSource, title, description, buttonTitle, onPress }) => {
+const ContentCard = ({ imageSource, title,subtitle, context, description, buttonTitle, onPress }) => {
   return (
     <View style={styles.card}>
         {imageSource && (
@@ -16,6 +16,14 @@ const ContentCard = ({ imageSource, title, description, buttonTitle, onPress }) 
       
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.description}>{description}</Text>
+      {subtitle ? (
+        <Text style={styles.subtitle}>{subtitle}</Text>
+      ) : null}
+
+      {context ? (
+        <Text style={styles.context}>{context}</Text>
+      ) : null}
+
       <OrangeButton 
         title={buttonTitle}
         handlePress={onPress}
@@ -54,6 +62,19 @@ const styles = StyleSheet.create({
     color: COLORS.darkPurple,
     marginBottom: 15,
   },
+  subtitle: {
+    fontSize: 24,
+    fontFamily: 'Rajdhani-Bold',
+    color: COLORS.darkPurple,
+    marginBottom: 10,
+  },
+  context: {
+    fontSize: 18,
+    fontFamily: 'Rajdhani-Semi-Bold',
+    color: COLORS.orange,
+    marginBottom: 15,
+  },
+  
 });
 
 export default ContentCard;
