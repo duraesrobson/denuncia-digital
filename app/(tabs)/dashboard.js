@@ -105,7 +105,7 @@ export default function Dashboard() {
           {/*legendas do grafico*/}
           <View style={styles.legendContainer}>
             {Object.entries(dataObject).map(([label, count], index) => {
-              const legendLabel = title === 'Denúncias por Faixa Etária' ? `${label} anos` : label;
+              const legendLabel = title === 'Denúncias por Faixa Etária' ? label : label;
               return (
                 <View key={index} style={styles.legendItem}>
                   <View style={[styles.colorBox, { backgroundColor: pieData[index].svg.fill }]} />
