@@ -6,7 +6,7 @@ const pegarMaisFrequente = (contagem) => {
   return Object.entries(contagem).sort((a, b) => b[1] - a[1])[0]; 
 };
 
-const ResumoCardsSection = ({ faixaEtariaData, tipoData, plataformaData, impactoData }) => {
+const ResumoCards = ({ faixaEtariaData, tipoData, plataformaData, impactoData }) => {
   const cards = [];
 
   if (Object.keys(plataformaData).length) {
@@ -21,8 +21,7 @@ const ResumoCardsSection = ({ faixaEtariaData, tipoData, plataformaData, impacto
 
   if (Object.keys(faixaEtariaData).length) {
     const [nome, total] = pegarMaisFrequente(faixaEtariaData);
-    const nomeComAnos = `${nome} anos`;
-    cards.push({ titulo: 'Faixa etária\nmais afetada', nome: nomeComAnos, total });
+    cards.push({ titulo: 'Faixa etária\nmais afetada', nome, total });
   }
 
   if (Object.keys(impactoData).length) {
@@ -48,4 +47,4 @@ const ResumoCardsSection = ({ faixaEtariaData, tipoData, plataformaData, impacto
   );
 };
 
-export default ResumoCardsSection;
+export default ResumoCards;

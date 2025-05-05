@@ -33,17 +33,35 @@ export default function Home() {
                 <ContentCard 
                   imageSource={require('@assets/images/ods16.jpg')}
                   title="ODS 16"
-                  description="O ODS 16 visa promover sociedades pacíficas e inclusivas para o desenvolvimento sustentável, proporcionar o acesso à justiça para todos e construir instituições eficazes, responsáveis e inclusivas em todos os níveis."
+                  description="A ODS 16 busca reduzir todas as formas de violência, garantir o acesso à justiça para todos e construir instituições transparentes e responsáveis. Ela defende direitos humanos, combate a corrupção e promove leis justas e inclusivas."
+                  subtitle=" Principais metas:"
+                  context={
+                    "• Reduzir violência e mortes violentas.\n" +
+                    "• Acabar com abuso, exploração, tráfico e tortura de crianças.\n" +
+                    "• Promover o Estado de Direito e acesso igualitário à justiça.\n" +
+                    "• Combater corrupção e suborno.\n" +
+                    "• Garantir instituições públicas eficazes e transparentes.\n" +
+                    "• Ampliar a participação nas decisões públicas."
+                    }
                   buttonTitle="Saiba mais"
                   onPress={() => Linking.openURL('https://odsbrasil.gov.br/objetivo/objetivo?n=16')}
-                />
+                  />
+                
+
                 <ContentCard
                   imageSource={require('@assets/images/lupa.jpg')} 
                   title="Participe da nossa pesquisa"
                   description="Ajude-nos a entender melhor as violações de direitos humanos no ambiente digital respondendo ao nosso questionário anônimo."
                   buttonTitle="Responder Questionário"
-                  //TODO: colocar link do form
                   onPress={() => Linking.openURL('https://forms.gle/nCgzQ3MwDv51C3n7A')}
+                />
+                
+                <ContentCard
+                  imageSource={require('@assets/images/lupa.jpg')} 
+                  title="O que achou do aplicativo?"
+                  description="Sua opinião é essencial! Responda nosso formulário e nos diga o que achou do aplicativo, o que podemos melhorar e como foi sua experiência."
+                  buttonTitle="Responder Questionário"
+                  onPress={() => Linking.openURL('https://forms.gle/dQ5r2rA52TYc27mq8')}
                 />
               </View>
             </>

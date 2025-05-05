@@ -17,8 +17,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.darkPurple,
     paddingTop: 25,
     paddingBottom: 25,
-    borderWidth: 2,
-    borderColor: COLORS.light,
     borderRadius: 16,
     marginTop: 15,
     width: 250,

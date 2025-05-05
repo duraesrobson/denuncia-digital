@@ -29,7 +29,7 @@ export default function DenunciaScreen() {
     { label: '31-38 anos', value: '31-38 ANOS' },
     { label: '38-45 anos', value: '38-45 ANOS' },
     { label: '46-55 anos', value: '46-55 ANOS' },
-    { label: 'Acima de 55 anos', value: '+55 ANOS' },
+    { label: 'Acima de 55 anos', value: 'Acima de 55 anos' },
   ]);
 
   const [periodoItems, setPeriodoItems] = useState([
@@ -73,7 +73,7 @@ export default function DenunciaScreen() {
     { label: 'Financeiro', value: 'financeiro' },
     { label: 'Profissional', value: 'profissional' },
     { label: 'Social', value: 'social' },
-    { label: 'Múltiplos impactos', value: 'multiplos' },
+    { label: 'Múltiplos impactos', value: 'multiplos impactos' },
 ]);
 
   const [reportItems, setReportItems] = useState([

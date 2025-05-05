@@ -4,11 +4,12 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
 import { COLORS } from 'app/styles/global';
-import { PieChart } from 'react-native-svg-charts';
-import { G, Text as SvgText } from 'react-native-svg';
+import { PieChart } from 'react-native-chart-kit';
 import ResumoCards from '@components/ResumoCards';
+import { LoadingScreen } from 'app/components/LoadingScreen';
 
 export default function Dashboard() {
+  const [isLoading, setIsLoading] = useState(true);
   const [faixaEtariaData, setFaixaEtariaData] = useState({});
   const [tipoData, setTipoData] = useState({});
   const [plataformaData, setPlataformaData] = useState({});
@@ -37,49 +38,50 @@ export default function Dashboard() {
       setPlataformaData(plataformaContagem);
       setPeriodoData(periodoContagem);
       setImpactoData(impactoContagem);
+      setIsLoading(false); // Set loading to false after data is loaded
     });
 
     return () => unsubscribe();
   }, []);
 
-  const preparePieData = (dataObject) => {
-    const colors = [COLORS.blue, COLORS.orange, '#7D5FFF', '#2ED573', '#E67E22', '#B33771', '#70A1FF', COLORS.light,];
-    return Object.keys(dataObject).map((key, index) => ({
-      key,
-      value: dataObject[key],
-      svg: { fill: colors[index % colors.length] },
-      arc: { outerRadius: '100%', padAngle: 0.03 },
-      label: key,
-    }));
-  };
-
-  const Labels = ({ slices }) => {
-    const total = slices.reduce((sum, s) => sum + s.data.value, 0);
-    return slices.map((slice, index) => {
-      const { pieCentroid, data } = slice;
-      const percentage = ((data.value / total) * 100).toFixed(0);
-      return (
-        <G key={index}>
-          <SvgText
-            x={pieCentroid[0]}
-            y={pieCentroid[1]}
-            fill={COLORS.darkPurple}
-            textAnchor={'middle'}
-            alignmentBaseline={'middle'}
-            fontSize={18}
-            stroke="black"
-            strokeWidth={0.2}
-          >
-            {`${percentage}%`}
-          </SvgText>
-        </G>
-      );
-    });
-  };
+  if (isLoading) {
+    return <LoadingScreen backgroundColor={COLORS.light} />;
+  }
 
   const renderPieChart = (title, dataObject) => {
-    const pieData = preparePieData(dataObject);
-    if (pieData.length === 0) return <Text style={{ textAlign: 'center', marginVertical: 10 }}>Sem dados para "{title}".</Text>;
+    if (Object.keys(dataObject).length === 0) {
+      return <Text style={{ textAlign: 'center', marginVertical: 10 }}>Sem dados para "{title}".</Text>;
+    }
+
+    const colors = [
+      COLORS.blue,
+      COLORS.orange,
+      '#7D5FFF',
+      '#2ED573',
+      '#E67E22',
+      '#B33771',
+      '#70A1FF',
+      '#FF6348',
+      '#6A5ACD',
+      '#20B2AA',
+      '#FFD700',
+      '#FF1493',
+      '#8A2BE2',
+      '#FF4500',
+      '#32CD32',
+      '#00CED1'
+    ];
+    const total = Object.values(dataObject).reduce((sum, value) => sum + value, 0);
+    
+    const chartData = Object.entries(dataObject).map(([name, value], index) => ({
+      name,
+      population: value,
+      color: colors[index % colors.length],
+      legendFontColor: COLORS.darkPurple,
+      legendFontSize: 16,
+      legendFontFamily: 'Rajdhani-SemiBold',
+      percentage: ((value / total) * 100).toFixed(0)
+    }));
 
     return (
       <View style={{ marginBottom: 30, alignItems: 'center', justifyContent: 'center' }}>
@@ -92,27 +94,38 @@ export default function Dashboard() {
           gap: 20, 
           paddingHorizontal: 10
         }}>
-
-          {/*grafico piechart*/}
+          
           <PieChart
-            style={{ height: 300, width: 300 }}
-            data={pieData}
-            outerRadius={'95%'}
-          >
-            <Labels />
-          </PieChart>
+          //todo: colocar porcentagem dentro do grafico novamente
+            data={chartData}
+            width={Dimensions.get('window').width - 16}
+            height={280}
+            chartConfig={{
+              color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+              labelColor: () => COLORS.darkPurple,
+              style: {
+                borderRadius: 16
+              },
+              propsForLabels: {
+                fontFamily: 'Rajdhani-SemiBold',
+              }
+            }}
+            accessor="population"
+            backgroundColor="transparent"
+            absolute
+            hasLegend={false}
+            center={[Dimensions.get('window').width / 4, 0]}
+          />
 
-          {/*legendas do grafico*/}
           <View style={styles.legendContainer}>
-            {Object.entries(dataObject).map(([label, count], index) => {
-              const legendLabel = title === 'Denúncias por Faixa Etária' ? label : label;
-              return (
-                <View key={index} style={styles.legendItem}>
-                  <View style={[styles.colorBox, { backgroundColor: pieData[index].svg.fill }]} />
-                  <Text style={styles.legendText}>{legendLabel}: {count}</Text>
-                </View>
-              );
-            })}
+            {Object.entries(dataObject).map(([label, count], index) => (
+              <View key={index} style={styles.legendItem}>
+                <View style={[styles.colorBox, { backgroundColor: colors[index % colors.length] }]} />
+                <Text style={styles.legendText}>
+                  {label}: {count} ({chartData[index].percentage}%)
+                </Text>
+              </View>
+            ))}
           </View>
         </View>
       </View>
@@ -121,7 +134,7 @@ export default function Dashboard() {
 
   return (
     <SafeAreaProvider style={styles.container}>
-      <ScrollView>
+      <ScrollView >
         <View style={styles.headerContainer}>
           <View>
             <Image
@@ -202,6 +215,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     marginTop: -30,
+    marginRight: -2,
     justifyContent: 'center',
     alignSelf: 'center',
   },
@@ -292,14 +306,9 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   chartContainer: {
-    marginBottom: 30,
+    marginVertical: 20,
+    padding: 10,
     alignItems: 'center',
-  },
-  chartRow: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: 20,
   },
   legendContainer: {
     flex: 1,
