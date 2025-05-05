@@ -24,16 +24,16 @@ export default function DenunciaScreen() {
   const [descricao, setDescricao] = useState('');
 
   const [faixaEtariaItems, setFaixaEtariaItems] = useState([
-    { label: '18-25 anos', value: '18-25' },
-    { label: '26-30 anos', value: '26-30' },
-    { label: '31-38 anos', value: '31-38' },
-    { label: '38-45 anos', value: '38-45' },
-    { label: '46-55 anos', value: '46-55' },
-    { label: 'Acima de 55 anos', value: '55+' },
+    { label: '18-25 anos', value: '18-25 ANOS' },
+    { label: '26-30 anos', value: '26-30 ANOS' },
+    { label: '31-38 anos', value: '31-38 ANOS' },
+    { label: '38-45 anos', value: '38-45 ANOS' },
+    { label: '46-55 anos', value: '46-55 ANOS' },
+    { label: 'Acima de 55 anos', value: '+55 ANOS' },
   ]);
 
   const [periodoItems, setPeriodoItems] = useState([
-    { label: 'Manhã (06-12h)', value: 'manha' },
+    { label: 'Manhã (06-12h)', value: 'manhÃ' },
     { label: 'Tarde (12-18h)', value: 'tarde' },
     { label: 'Noite (18-00h)', value: 'noite' },
     { label: 'Madrugada (00-06h)', value: 'madrugada' },
@@ -42,15 +42,15 @@ export default function DenunciaScreen() {
   const [tipoItems, setTipoItems] = useState([
     { label: 'Violação de Privacidade', value: 'privacidade' },
     { label: 'Cyberbullying', value: 'cyberbullying' },
-    { label: 'Discurso de Ódio', value: 'discursoOdio' },
+    { label: 'Discurso de Ódio', value: 'Discurso de ódio' },
     { label: 'Ciberataque ou invasão de dispositivos/contas', value: 'ciberataque' },
-    { label: 'Desinformação / Fake News', value: 'fakenews' },
+    { label: 'Desinformação / Fake News', value: 'Fake News' },
     { label: 'Stalking digital (perseguição online', value: 'stalking' },
     { label: 'Exposição não consentida de informações pessoais (doxxing)', value: 'doxxing' },
     { label: 'Fraude ou Crime Financeiro', value: 'fraude' },
-    { label: 'Compartilhamento não consensual de imagens íntimas', value: 'conteudoIntimo' },
-    { label: 'Perfil falso / identidade falsa', value: 'falsidadeIdeologica' },
-    { label: 'Vigilância Não Autorizada', value: 'vigilancia' },
+    { label: 'Compartilhamento não consensual de imagens íntimas', value: 'Conteudo Intimo' },
+    { label: 'Perfil falso / identidade falsa', value: 'falsidade Ideológica' },
+    { label: 'Vigilância Não Autorizada', value: 'vigilancia não autorizada' },
     { label: 'Censura / Restrição à Liberdade de Expressão', value: 'censura' },
     { label: 'Outro', value: 'outro' },
   ]);
@@ -65,7 +65,7 @@ export default function DenunciaScreen() {
     { label: 'Discord', value: 'discord' },
     { label: 'Telegram', value: 'telegram' },
     { label: 'Reddit', value: 'reddit' },
-    { label: 'Outro', value: 'outraPlataforma' },
+    { label: 'Outro', value: 'outra Plataforma' },
   ]);
 
   const [impactoItems, setImpactoItems] = useState([
