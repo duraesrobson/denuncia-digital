@@ -3,6 +3,7 @@
     "name": "DenunciaDigital",
     "slug": "DenunciaDigital",
     "version": "1.0.0",
+    "sdkVersion": "52.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/splash-icon.png",
     "userInterfaceStyle": "light",
@@ -22,7 +23,8 @@
         "foregroundImage": "./assets/images/splash-icon.png",
         "backgroundColor": "#171324"
       },
-      "googleServicesFile": "./google-services.json"
+      "googleServicesFile": "./google-services.json",
+      "package": "app.denunciadigital"
     },
     "web": {
       "favicon": "./assets/images/icon-92.png"
@@ -31,6 +33,15 @@
       "expo-router",
       "expo-font",
       "expo-build-properties"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "eb57dec8-63b1-40ef-bed6-8dd0952eccf7"
+      }
+    },
+    "owner": "duraesrobson"
   }
 }
