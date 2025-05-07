@@ -66,14 +66,14 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     width:140,
     height: 140,
-    marginTop: -50,
+    marginTop: -30,
     
   },
   imagem: {
     resizeMode: 'contain',
     width:300,
     height: 300,
-    marginTop: -20
+    marginTop: -10
   },
   titulo:{
     fontSize: 30,
