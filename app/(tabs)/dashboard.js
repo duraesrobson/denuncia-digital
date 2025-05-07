@@ -325,7 +325,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   colorBox: {
-    width: 16,
+    width: 22,
     height: 16,
     marginRight: 8,
     borderRadius: 3,
