@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "DenunciaDigital",
+    "name": "Denúncia Digital",
     "slug": "DenunciaDigital",
     "version": "1.0.0",
     "sdkVersion": "52.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/splash-icon.png",
+    "icon": "./assets/images/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
