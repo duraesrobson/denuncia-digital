@@ -78,7 +78,7 @@ export default function Dashboard() {
       population: value,
       color: colors[index % colors.length],
       legendFontColor: COLORS.darkPurple,
-      legendFontSize: 16,
+      legendFontSize: 20,
       legendFontFamily: 'Rajdhani-SemiBold',
       percentage: ((value / total) * 100).toFixed(0)
     }));
@@ -99,7 +99,7 @@ export default function Dashboard() {
           //todo: colocar porcentagem dentro do grafico novamente
             data={chartData}
             width={Dimensions.get('window').width - 16}
-            height={280}
+            height={310}
             chartConfig={{
               color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
               labelColor: () => COLORS.darkPurple,
@@ -121,9 +121,14 @@ export default function Dashboard() {
             {Object.entries(dataObject).map(([label, count], index) => (
               <View key={index} style={styles.legendItem}>
                 <View style={[styles.colorBox, { backgroundColor: colors[index % colors.length] }]} />
-                <Text style={styles.legendText}>
-                  {label}: {count} ({chartData[index].percentage}%)
-                </Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <Text style={styles.legendText}>
+                    {label}: {count}
+                  </Text>
+                  <Text style={[styles.legendText, { color: COLORS.orange }]}>
+                    {' '}({chartData[index].percentage}%)
+                  </Text>
+                </View>
               </View>
             ))}
           </View>
@@ -326,8 +331,8 @@ const styles = StyleSheet.create({
     borderRadius: 3,
   },
   legendText: {
-    fontSize: 18,
-    fontFamily: 'Rajdhani-SemiBold',
+    fontSize: 22,
+    fontFamily: 'Rajdhani-Bold',
     textTransform: 'uppercase',
     textAlign: 'center',
     color: COLORS.darkPurple,
