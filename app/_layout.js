@@ -3,7 +3,7 @@ import { Slot, Stack } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { COLORS } from 'app/styles/global';
 import { useFonts } from 'expo-font';
-import { LoadingScreen } from 'app/components/LoadingScreen';
+import  LoadingScreen  from 'app/components/LoadingScreen';
 
 const IndexLayout = () => {
   const [fontsLoaded] = useFonts({

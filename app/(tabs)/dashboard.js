@@ -6,7 +6,7 @@ import { db } from '../../firebaseConfig';
 import { COLORS } from 'app/styles/global';
 import { PieChart } from 'react-native-chart-kit';
 import ResumoCards from '@components/ResumoCards';
-import { LoadingScreen } from 'app/components/LoadingScreen';
+import  LoadingScreen  from 'app/components/LoadingScreen';
 
 export default function Dashboard() {
   const [isLoading, setIsLoading] = useState(true);

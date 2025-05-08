@@ -2,7 +2,7 @@ import React from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { COLORS } from 'app/styles/global';
 
-export const LoadingScreen = ({ backgroundColor = COLORS.darkPurple }) => {
+const LoadingScreen = ({ backgroundColor = COLORS.darkPurple }) => {
   return (
     <View style={[styles.container, { backgroundColor }]}>
       <ActivityIndicator size="large" color={COLORS.orange} />
@@ -17,3 +17,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+export default LoadingScreen;

@@ -27,4 +27,12 @@ export const SPACING = {
     lg: 24,
     xl: 32,
     xxl: 40,
-}; 
+};
+
+// Add default export combining all constants
+export default {
+    COLORS,
+    FONTS,
+    SIZES,
+    SPACING
+};
