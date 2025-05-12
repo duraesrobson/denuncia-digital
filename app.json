@@ -2,12 +2,13 @@
   "expo": {
     "name": "Denúncia Digital",
     "slug": "DenunciaDigital",
-    "version": "1.0.0",
+    "version": "1.2.0",
     "sdkVersion": "52.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
+    "newArchEnabled": true,       
+    
     "splash": {
       "image": "./assets/images/splash-icon.png",
       "resizeMode": "contain",
@@ -20,14 +21,14 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/splash-icon.png",
+        "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#171324"
       },
       "googleServicesFile": "./google-services.json",
       "package": "app.denunciadigital"
     },
     "web": {
-      "favicon": "./assets/images/icon-92.png"
+      "favicon": "./assets/images/icon.png"
     },
     "plugins": [
       "expo-router",

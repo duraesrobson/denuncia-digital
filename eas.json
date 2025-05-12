@@ -10,7 +10,7 @@
         "developmentClient": true,
         "distribution": "internal",
         "env": {
-          "ANDROID_SDK_ROOT": "%LOCALAPPDATA%\\Android\\Sdk"
+          "ANDROID_SDK_ROOT": "/home/duraesrobson/Android/Sdk"
         }
       }
     },
