@@ -15,7 +15,7 @@ export default function Dashboard() {
   const [plataformaData, setPlataformaData] = useState({});
   const [periodoData, setPeriodoData] = useState({});
   const [impactoData, setImpactoData] = useState({});
-  const [reportsData, setReportsData] = useState({});
+  const [reportData, setReportData] = useState({});
 
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, 'denuncias'), (snapshot) => {
@@ -24,7 +24,7 @@ export default function Dashboard() {
       const plataformaContagem = {};
       const periodoContagem = {};
       const impactoContagem = {};
-      const reportsContagem = {};
+      const reportContagem = {};
 
       snapshot.forEach(doc => {
         const data = doc.data();
@@ -33,7 +33,11 @@ export default function Dashboard() {
         if (data.plataforma) plataformaContagem[data.plataforma] = (plataformaContagem[data.plataforma] || 0) + 1;
         if (data.periodoDeUso) periodoContagem[data.periodoDeUso] = (periodoContagem[data.periodoDeUso] || 0) + 1;
         if (data.impacto) impactoContagem[data.impacto] = (impactoContagem[data.impacto] || 0) + 1;
-        if (data.reports) reportsContagem[data.reports] = (reportsContagem[data.reports] || 0) + 1; 
+        
+        // checar reports feitos
+        if (data.report) {
+          reportContagem[data.report] = (reportContagem[data.report] || 0) + 1;
+        }
       });
 
       setFaixaEtariaData(faixaContagem);
@@ -41,8 +45,8 @@ export default function Dashboard() {
       setPlataformaData(plataformaContagem);
       setPeriodoData(periodoContagem);
       setImpactoData(impactoContagem);
-      setReportsData(reportsContagem);
-      setIsLoading(false); // Set loading to false after data is loaded
+      setReportData(reportContagem); 
+      setIsLoading(false); 
     });
 
     return () => unsubscribe();
@@ -170,7 +174,7 @@ export default function Dashboard() {
               plataformaData={plataformaData}
               impactoData={impactoData}
               periodoData={periodoData}
-              reports={reportsData}
+              reportData={reportData}
             />
           </View>
 
@@ -179,7 +183,7 @@ export default function Dashboard() {
           {renderPieChart('Plataformas Reportadas', plataformaData)}
           {renderPieChart('Impactos Reportados', impactoData)}
           {renderPieChart('Horário das Violações', periodoData)}
-          {renderPieChart('Violações reportadas às plataformas ou autoridades', reportsData)}
+          {renderPieChart('Violações reportadas às plataformas ou autoridades', reportData)}
 
           <View style={styles.apoioContainer}>
 
