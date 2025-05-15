@@ -77,8 +77,8 @@ export default function DenunciaScreen() {
 ]);
 
   const [reportItems, setReportItems] = useState([
-    { label: 'Sim', value: 'reportado' },
-    { label: 'Não', value: 'naoReportado' },
+    { label: 'Sim', value: 'Reportado' },
+    { label: 'Não', value: 'Não Reportado' },
   ]);
 
   const enviarDenuncia = async () => {
