@@ -14,7 +14,7 @@ Este projeto está alinhado ao **ODS 16 - Paz, Justiça e Instituições Eficaze
 - **Pesquisa para Análise de Padrões**: Coleta de dados sobre o uso da internet e experiências negativas no ambiente digital.
 
 ## Tecnologias Utilizadas
-### __Front-end__
+### _Front-end_
 - **React Native:** Framework para desenvolvimento de aplicativos móveis nativos usando JavaScript e React.
 - **Expo:** Plataforma que simplifica o desenvolvimento de aplicativos com React Native, fornecendo um conjunto de ferramentas e serviços.
 - **React Navigation:** Biblioteca para navegação em aplicativos React Native, utilizando Stack Navigator e Tab Navigator.
@@ -22,7 +22,7 @@ Este projeto está alinhado ao **ODS 16 - Paz, Justiça e Instituições Eficaze
 - **React Native Paper:** Biblioteca de componentes UI seguindo as diretrizes do Material Design. 
 - **React Native Vector Icons:** Biblioteca de ícones vetoriais para o React Native. 
 
-### __Back-end__
+### _Back-end_
 - **Firebase:** Plataforma de desenvolvimento de aplicativos móveis do Google. 
 - **Firestore:** Banco de dados NoSQL baseado em nuvem para armazenamento e sincronização de dados. 
 - **Cloud Functions:** Ambiente serverless para execução de código back-end.
