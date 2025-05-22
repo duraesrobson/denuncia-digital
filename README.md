@@ -27,7 +27,8 @@ Este projeto está alinhado ao **ODS 16 - Paz, Justiça e Instituições Eficaze
 - **Firestore:** Banco de dados NoSQL baseado em nuvem para armazenamento e sincronização de dados. 
 - **Cloud Functions:** Ambiente serverless para execução de código back-end.
 
-
+## Download
+O arquivo .apk para download se encontra na pasta "APK".
 
 ## Equipe
 - Robson Durães
