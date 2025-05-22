@@ -28,7 +28,8 @@ Este projeto está alinhado ao **ODS 16 - Paz, Justiça e Instituições Eficaze
 - **Cloud Functions:** Ambiente serverless para execução de código back-end.
 
 ## Download
-O arquivo .apk para download se encontra na pasta "APK".
+O arquivo .apk para download se encontra no seguinte link: 
+https://drive.google.com/file/d/1f9t-Ckxe6FpeuZ54fUEVJQe56Xkmr4qX/view?usp=sharing
 
 ## Equipe
 - Robson Durães
